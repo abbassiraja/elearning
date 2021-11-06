@@ -1,0 +1,127 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block body %}
+
+
+  <style>
+    body{
+    background: #fcd98d;
+}
+.card{
+    background: #ffb429;
+    width: 500px;
+    height: 400px;
+    margin-left: 390px;
+    margin-top: 30px;
+    transition-duration: 0.5s;
+    border-radius: 10px;
+    
+}
+.card:hover{
+    box-shadow: 2px 2px 40px  #ffb429;
+    width: 520px;
+    height: 420px;
+}
+
+.input-1{
+    background: #ffb429;
+    margin-top: 150px;
+    margin-left: 85px;
+    height: 30px;
+    width: 300px;
+    border: solid white 2px ;
+    border-radius: 10px;
+    transition-duration: 0.5s;
+}
+.input-1:hover{
+    border-color: rgb(0, 0, 0);
+    width: 280px;
+}
+.input-2{
+    background: #ffb429;
+    margin-top: 50px;
+    margin-left: 85px;
+    height: 30px;
+    width: 300px;
+    border: solid white 2px ;
+    border-radius: 10px;
+    transition-duration: 0.5s;
+}
+.input-2:hover{
+    border-color: rgb(0, 0, 0);
+    width: 280px;
+}
+.login{
+    color: rgb(37, 37, 37);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    align-self: center;
+    margin-left: 200px;
+    position: absolute;
+    transition-duration: 0.5s;
+}
+.login:hover{
+    color: rgb(37, 37, 37);
+    font-size: 20px;
+}
+.btn{
+    margin-left: 160px;
+    margin-top: 40px;
+    width: 150px;
+    height: 35px;
+    background-color: #ffb429;
+    border-radius: 10px;
+    border-style: solid;
+    transition-duration: 0.5s;
+}
+.btn:hover{
+    border-color: rgb(37, 37, 37);
+    width: 155px;
+    height: 40px;
+    border-width: 5px;
+    
+}
+    </style>
+
+    <div class="card">
+    <form method="post">
+    {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    {% if app.user %}
+        <div class="mb-3">
+            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+        </div>
+    {% endif %}
+  <div class="login">
+ <h2 class="h3 mb-3 font-weight-normal">Please sign in</h2>
+ </div>
+    <label for="inputEmail">Email</label>
+    <input type="email"  class="input-1" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required ><br>
+    <label for="inputPassword">Password</label>
+    <input type="password" class="input-2"  name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+
+    <input type="hidden" name="_csrf_token"
+           value="{{ csrf_token('authenticate') }}"
+    >
+
+    {#
+        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+        See https://symfony.com/doc/current/security/remember_me.html
+
+        <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" name="_remember_me"> Remember me
+            </label>
+        </div>
+    #}
+
+    <button class="btn btn-lg btn-primary" type="submit">
+        Sign in
+    </button>
+</form>
+</div>
+{% endblock %}

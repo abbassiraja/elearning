@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        
+        {% block stylesheets %}
+             <link rel="stylesheet" href="{{asset('css/style.css')}}">
+         <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
+         <link rel="stylesheet" href="{{asset('css/bootstrap.min.css.map')}}">
+         <link rel="stylesheet" href="{{asset('css/bootstrap.css.map')}}">
+        {% endblock %}
+
+        {% block javascripts %}
+             <script src="{{ asset('js/index.js')}}"></script>
+             
+       <script src="{{asset('js/bootstrap.bundle.min.js')}}"></script>
+       <script src="{{asset('js/popper-base.min.js.map')}}"></script>
+       <script src="{{asset('js/popper.min.js')}}"></script>
+        {% endblock %}
+    </head>
+    <body>
+    <nav class="navbar">
+      <a href="#" class="navbar-logo">
+      <i class="material-icons"></i><img src="{{asset('images/logo edc.jpg')}}" alt="" style="width: 100px;"> </a>
+      <ul class="navbar-links">
+        <li class="navbar-dropdown">
+          <a href="#">Acceuil</a></li>
+           <li class="navbar-dropdown">
+          <a href="#">Écoles</a></li>
+      <ul class="navbar-links">
+        <li class="navbar-dropdown">
+          <a href="">Matières</a>
+          <div class="dropdown">
+            <a href="#">français</a>
+            <a href="#">anglais</a>
+            <a href="#">mathématiques</a>
+
+          </div>
+        </li>
+        <li class="navbar-dropdown">
+          <a href="#">Cours</a>
+          <div class="dropdown">
+            <a href="#">cours français</a>
+            <a href="#">Cours anglais</a>
+            <a href="#">Cours mathématique</a>
+
+          </div>
+        </li>
+        <li class="navbar-dropdown">
+          <a href="#">Enseignants</a>
+
+        </li>
+        <li class="navbar-dropdown">
+          <a href="#">Contact</a>
+
+        </li>
+       
+         {% if app.user %}
+
+       <li class="nav-item ">
+        <a class="nav-link" >{{ app.user.nom }} {{ app.user.prenom }}</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{path('app_logout')}}">Déconnexion</a>
+      </li>
+
+
+       {% else %}
+        <li class="navbar-dropdown">
+          <a href="{{path('register')}}">Inscription</a>
+
+        </li>
+          </li>
+        <li class="navbar-dropdown">
+          <a href="{{path('app_login')}}">Connexion</a>
+
+        </li>
+        {% endif %}
+         <li><a href="#"><img src="{{asset('images/logopanier.png')}}" alt="" style="width:30px; height:30px;"  ></a></li>
+      </ul>
+    </nav>
+   
+
+
+
+   
+<!--slider-->
+   
+   
+   
+        {% block body %}{% endblock %}
+        
+         
+         <script src="{{asset('jquery/jquery-3.5.1.min.slim.js')}}"></script>
+    </body>
+</html>

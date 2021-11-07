@@ -20,7 +20,7 @@
         {% endblock %}
     </head>
     <body>
-    <nav class="navbar">
+    <nav class="navbar fixed-top">
       <a href="#" class="navbar-logo">
       <i class="material-icons"></i><img src="{{asset('images/logo edc.jpg')}}" alt="" style="width: 100px;"> </a>
       <ul class="navbar-links">
@@ -87,6 +87,36 @@
    
 <!--slider-->
    
+    <div class="slideshow">
+
+        <div class="slideshow-item">
+            <img src="{{ asset('css/slide/im1.jpg') }}">
+            <div class="slideshow-item-text">
+                <h5>SCHOOL@HOME</h5>
+                <p>Le secret de votre réussite</p>
+            </div>
+        </div>
+        
+        <div class="slideshow-item">
+            <img src="{{ asset('css/slide/im2.jpg') }}">
+            <div class="slideshow-item-text">
+                <h5>SCHOOL@HOME</h5>
+                <p>Le secret de votre réussite</p>
+            </div>
+        </div>
+        <div class="slideshow-item">
+            <img src="{{ asset('css/slide/im3.jpg') }}">
+            <div class="slideshow-item-text">
+                <h5>SCHOOL@HOME</h5>
+                <p>Le secret de votre réussite</p>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
    
    
         {% block body %}{% endblock %}

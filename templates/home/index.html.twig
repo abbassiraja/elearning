@@ -3,18 +3,34 @@
 {% block title %}Hello HomeController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+<div class="container">
+<div class="row">
+<div class="col-lg-4 col-md-6 col-sm-12 offset-lg-4">
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/opt/lampp/htdocs/elearning/src/Controller/HomeController.php'|file_link(0) }}">src/Controller/HomeController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/opt/lampp/htdocs/elearning/templates/home/index.html.twig'|file_link(0) }}">templates/home/index.html.twig</a></code></li>
-    </ul>
+  <h1> Qui sommes-nous  </h1> 
+</div>
+</div>
+<div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-12 offset-lg-3">
+    
+      <p> school@home est une plateforme d’enseignement et  d’apprentissage en ligne 
+          destinée à tout le monde. Les cours sont tutorés par des agrégés, des profs d’enseignement et des experts à travers des vidéos et 
+          des visioconférences et restent accessibles en replay sans limite de temps.  </p> 
+    </div>
+    </div>
+    <div class="row ">
+       <div class="col-lg-3 col-md-3 col-sm-12" >
+         <img  class="c" src="{{asset('images/c1.jpg')}}" alt="" style="width: 300px; height: 300px;" ><br>
+         <p>+ 206 Cours en ligne</p>
+       </div>
+       <div class="col-lg-3 col-md-3 col-sm-12 offset-lg-1" >
+        <img  class="c" src="{{asset('images/c2.jpg')}}" alt="" style="width: 300px; height: 300px;"><br>
+        <p>+ 186 UTILISATEUR de notre plateforme d'apprentissage</p>
+       </div>
+       <div class="col-lg-3 col-md-3 col-sm-12 offset-lg-1" >
+        <img  class="c" src="{{asset('images/c3.jpg')}}" alt="" style="width: 300px; height: 300px;"><br>
+        <p>+ 692 Devoirs et Activités</p>
+       </div>
+        </div>
 </div>
 {% endblock %}

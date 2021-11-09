@@ -24,6 +24,7 @@ class NiveauScolaireCrudController extends AbstractCrudController
             ->setUploadDir('public/images')
             ->setUploadedFileNamePattern('[randomhash].[extension]'),
          TextField::new('nom'),
+         TextField::new('description'),
          AssociationField::new('ecole'),
         ];
     }

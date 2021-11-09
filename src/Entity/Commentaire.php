@@ -18,15 +18,25 @@ class Commentaire
     private $id;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="string", length=255)
      */
     private $text;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Cours::class)
+     * @ORM\Column(type="string", length=255)
+     */
+    private $nomutilisateur;
+
+    /**
+     * @ORM\Column(type="datetime_immutable")
+     */
+    private $createdAt;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Admin::class)
      * @ORM\JoinColumn(nullable=false)
      */
-    private $cour;
+    private $admin;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class)
@@ -35,10 +45,10 @@ class Commentaire
     private $user;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Admin::class)
+     * @ORM\ManyToOne(targetEntity=Cours::class)
      * @ORM\JoinColumn(nullable=false)
      */
-    private $admin;
+    private $cour;
 
     public function getId(): ?int
     {
@@ -57,14 +67,38 @@ class Commentaire
         return $this;
     }
 
-    public function getCour(): ?Cours
+    public function getNomutilisateur(): ?string
     {
-        return $this->cour;
+        return $this->nomutilisateur;
     }
 
-    public function setCour(?Cours $cour): self
+    public function setNomutilisateur(string $nomutilisateur): self
     {
-        $this->cour = $cour;
+        $this->nomutilisateur = $nomutilisateur;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeImmutable
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeImmutable $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getAdmin(): ?Admin
+    {
+        return $this->admin;
+    }
+
+    public function setAdmin(?Admin $admin): self
+    {
+        $this->admin = $admin;
 
         return $this;
     }
@@ -81,14 +115,14 @@ class Commentaire
         return $this;
     }
 
-    public function getAdmin(): ?Admin
+    public function getCour(): ?Cours
     {
-        return $this->admin;
+        return $this->cour;
     }
 
-    public function setAdmin(?Admin $admin): self
+    public function setCour(?Cours $cour): self
     {
-        $this->admin = $admin;
+        $this->cour = $cour;
 
         return $this;
     }

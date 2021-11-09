@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\CoursRepository;
+use App\Repository\NiveauScolaireRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=CoursRepository::class)
+ * @ORM\Entity(repositoryClass=NiveauScolaireRepository::class)
  */
-class Cours
+class NiveauScolaire
 {
     /**
      * @ORM\Id
@@ -23,21 +23,20 @@ class Cours
     private $nom;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="string", length=255)
      */
     private $description;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Matieres::class)
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\Column(type="string", length=255)
      */
-    private $matiere;
+    private $image;
 
     /**
-     * @ORM\ManyToOne(targetEntity=NiveauScolaire::class)
+     * @ORM\ManyToOne(targetEntity=Ecoles::class)
      * @ORM\JoinColumn(nullable=false)
      */
-    private $niveauscolaire;
+    private $ecole;
 
     public function getId(): ?int
     {
@@ -68,26 +67,26 @@ class Cours
         return $this;
     }
 
-    public function getMatiere(): ?Matieres
+    public function getImage(): ?string
     {
-        return $this->matiere;
+        return $this->image;
     }
 
-    public function setMatiere(?Matieres $matiere): self
+    public function setImage(string $image): self
     {
-        $this->matiere = $matiere;
+        $this->image = $image;
 
         return $this;
     }
 
-    public function getNiveauscolaire(): ?NiveauScolaire
+    public function getEcole(): ?Ecoles
     {
-        return $this->niveauscolaire;
+        return $this->ecole;
     }
 
-    public function setNiveauscolaire(?NiveauScolaire $niveauscolaire): self
+    public function setEcole(?Ecoles $ecole): self
     {
-        $this->niveauscolaire = $niveauscolaire;
+        $this->ecole = $ecole;
 
         return $this;
     }

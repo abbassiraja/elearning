@@ -48,6 +48,11 @@ class Ecoles
      */
     private $admin;
 
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $description;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -123,5 +128,20 @@ class Ecoles
         $this->admin = $admin;
 
         return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+    public function __toString(){
+        return $this->nom;
     }
 }

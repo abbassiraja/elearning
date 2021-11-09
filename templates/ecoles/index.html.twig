@@ -1,0 +1,90 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello EcolesController!{% endblock %}
+
+{% block body %}
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
+
+.container {
+  position: relative;
+  width: 1100px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding: 30px;
+}
+.container .card {
+  position: relative;
+  max-width: 300px;
+  height: 170px;
+  background: #fff;
+  margin: 30px 10px;
+  padding: 20px 15px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+  transition: 0.3s ease-in-out;
+}
+.container .card:hover {
+  height: 420px;
+}
+.container .card .img-box {
+  position: relative;
+  width: 260px;
+  height: 260px;
+  top: -60px;
+  left: 20px;
+  z-index: 1;
+}
+
+.container .card .img-box img {
+  max-width: 100%;
+  border-radius: 4px;
+}
+
+.container .card .content p {
+  position: relative;
+  padding: 10px 15px;
+  text-align: center;
+  color: #111;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s ease-in-out;
+  
+}
+.container .card .content h2 {
+  position: relative;
+  text-align: center;
+  top: -45px;
+}
+.container .card:hover .content p {
+  visibility: visible;
+  opacity: 1;
+  
+  margin-top: -100px;
+  transition-delay: 0.1s;
+}
+</style>
+
+<div class="container">
+{% for item in ecole %}
+
+  <div class="card">
+   
+    <div class="img-box">
+      <img src="/images/{{item.image}}" style="width:300px; height:150px;"   > 
+      <h2>{{item.nom}}</h2>       
+    </div>
+    <div class="content">
+     
+      <p>{{item.description}}</p>
+      <button><a href="{{path('niveau_scolaire')}}" >Niveau scolaire</a></button>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

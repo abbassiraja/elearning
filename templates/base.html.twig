@@ -25,25 +25,25 @@
       <i class="material-icons"></i><img src="{{asset('images/logo edc.jpg')}}" alt="" style="width: 100px;"> </a>
       <ul class="navbar-links">
         <li class="navbar-dropdown">
-          <a href="#">Acceuil</a></li>
+          <a href="{{path('home')}}">Acceuil</a></li>
            <li class="navbar-dropdown">
-          <a href="#">Écoles</a></li>
+          <a href="{{path('ecoles')}}">Écoles</a></li>
       <ul class="navbar-links">
         <li class="navbar-dropdown">
-          <a href="">Matières</a>
+          <a href="{{path('matieres')}}">Matières</a>
           <div class="dropdown">
-            <a href="#">français</a>
-            <a href="#">anglais</a>
-            <a href="#">mathématiques</a>
+            <a href="{{path('matieres')}}">français</a>
+            <a href="{{path('matieres')}}">anglais</a>
+            <a href="{{path('matieres')}}">mathématiques</a>
 
           </div>
         </li>
         <li class="navbar-dropdown">
-          <a href="#">Cours</a>
+          <a href="{{path('cours')}}">Cours</a>
           <div class="dropdown">
-            <a href="#">cours français</a>
-            <a href="#">Cours anglais</a>
-            <a href="#">Cours mathématique</a>
+            <a href="{{path('cours')}}">cours français</a>
+            <a href="{{path('cours')}}">Cours anglais</a>
+            <a href="{{path('cours')}}">Cours mathématique</a>
 
           </div>
         </li>

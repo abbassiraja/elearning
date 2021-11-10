@@ -4,17 +4,153 @@
 
 {% block body %}
 <style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+   
+
+
+/* test  */
+@import url('https://fonts.googleapis.com/css?family=Sarabun:300,600');
+
+*,
+*::before,
+*::after { 
+  box-sizing: border-box; 
+}
+
+:root {
+  --blue: #1e88e5;
+  --black: #000;
+  --dark-grey: #444;
+  --light-grey: #eee;
+  --red: #f44336;
+  --yellow: #fdd835;
+  --white: #fff;
+}
+
+body {
+  background: var(--light-grey);
+}
+
+.container {
+  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(300px, 1fr));
+  grid-template-rows: 1;
+  height: 100vh;
+  justify-items: center;
+}
+
+@media (max-width: 900px) {
+  .container {
+    grid-template-rows: repeat(3, 1fr) !important;
+    grid-template-columns: minmax(300px, 1fr);
+  }
+}
+
+.card {
+  background: var(--white);
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 15px 25px rgba(0,0,0,.19), 0 6px 6px rgba(0,0,0,.05);
+  font-family: Sarabun, sans-serif;
+  margin: 50px;
+  padding: 20px;
+  -webkit-transition: all 1s; 
+  transition: all 1s;
+  width: 245px;
+}
+
+.card:hover {
+  color: var(--white);
+  transform: translateY(-50px);
+}
+
+.card1:hover {
+  background: var(--red);
+  box-shadow: 0 15px 30px rgba(244,67,54,.65);
+}
+
+.card2:hover {
+  background: var(--blue);
+  box-shadow: 0 15px 30px rgba(30,136,229,.65);
+}
+
+.card3:hover {
+  background: var(--yellow);
+  box-shadow: 0 15px 30px rgba(253,216,53,.65);
+  color: var(--dark-grey);
+}
+
+.content__cover {
+  height: 200px;
+  object-fit: cover;
+  overflow: hidden;
+  width: 200px;
+}
+
+.cover__img--food1  {
+  object-position: -50px -20px;
+  width: 200%;
+}
+
+.cover__img--food2  {
+  object-position: -150px -80px;
+  width: 260%;
+}
+
+.cover__img--food3  {
+  object-position: -50px 0px;
+  width: 160%;
+}
+
+.content__title { font-size: 1.25em; }
+
+.title__divider { border: 0.5px dashed; }
+
+.footer__links {
+  color: var(--black);
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 1s;
+}
+
+.links__checkbox {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.links__checkbox + label {
+  border: 1px solid;
+  display: inline-block;
+  height: 15px;
+  margin: 5px 5px -2px -8px;
+  width: 15px;
+}
+
+
 </style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/opt/lampp/htdocs/elearning/src/Controller/MatieresController.php'|file_link(0) }}">src/Controller/MatieresController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/opt/lampp/htdocs/elearning/templates/matieres/index.html.twig'|file_link(0) }}">templates/matieres/index.html.twig</a></code></li>
-    </ul>
+
+<section class="container">
+{% for item in matiere %}
+<div class="card card1">
+  <div class="card__content">
+    <div class="content__cover">
+      <img class="cover__img--food1" src="/images/{{item.image}}">
+    </div>
+    <div class="content__text">
+      <h4 class="content__title">Matière: {{item.nom}}</br> Niveau:{{item.niveauscolaire}} </h4>
+      <hr class="title__divider">
+      
+    </div>
+    <div class="content__footer">
+      <button><a href="{{path('cours')}}">cours</a></button>
+    </div>
+  </div>
 </div>
+
+{% endfor %}
+</section>
+
 {% endblock %}

@@ -2,19 +2,31 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Entity\Cours;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class CoursController extends AbstractController
 {
+    private $entityManager;
+
+    public function __construct(EntityManagerInterface $entityManager) {
+    
+        $this->entityManager = $entityManager;
+    
+       
+    
+    }
     /**
      * @Route("/cours", name="cours")
      */
     public function index(): Response
     {
+        $cour = $this->entityManager->getRepository(Cours::class)->findAll();
         return $this->render('cours/index.html.twig', [
-            'controller_name' => 'CoursController',
+            'cour' => $cour,
         ]);
     }
 }

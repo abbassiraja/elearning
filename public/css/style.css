@@ -251,11 +251,120 @@ body{
 /*titre home */
 h1{
   color: #4d80eed5;
-  margin-left: 400px;
+  text-align: center;
 }
 
 /* qui sommes nous home*/
+.main
+{
+  width: 1170px;
+  margin: 20px auto;
+  background: white;
+}
 
+body
+{background: grey;
+font-family: 'Ubuntu', sans-serif;}
+
+#uslugi .nav li
+{
+  text-align: center;
+  position: relative;
+   height: 185PX;
+}
+
+#uslugi .nav li h3
+{
+    margin-top: 130px;
+    margin-bottom: 5px;
+  font-size: 18px;
+  transition: all 0.1s ease-in-out;
+}
+#uslugi .nav>li>a:hover h3
+{margin-top: 144px;
+    margin-bottom: 5px;
+  font-weight: 600; 
+ }
+
+#uslugi .nav .active h3
+{margin-top: 144px;
+    margin-bottom: 5px;
+  font-weight: 600;
+color: black;
+  opacity: 0;
+}
+
+#uslugi .nav li a,
+#uslugi .nav
+{color: grey;
+border: 0px;}
+
+#uslugi .nav>li>a:hover
+{color: black;
+border: 0px;}
+
+
+
+#uslugi .nav .icon_active
+{opacity: 0;}
+
+#uslugi .nav .active .icon_pass
+{opacity: 0;
+transition: all 0.2s ease-in-out;}
+
+#uslugi .nav .active .icon_active
+{opacity: 1;
+transition: all 0.2s ease-in-out;}
+
+#uslugi .icons
+{
+ position: absolute;
+  left: 23%;
+border-radius: 50%;
+margin: 0 auto;
+border: 3px solid none;
+transition: all 0.1s ease-in-out;
+  background: none;
+}
+
+#uslugi .icon_active
+{width: 132px;
+height: 132px;
+top: 30px;
+}
+
+#uslugi .icon_pass
+{  width: 130px;
+height: 132px;}
+
+#uslugi .icon_pass img
+{width: 130px;
+ padding: 25px;
+}
+
+#uslugi .icon_active img
+{width: 130px;
+ padding: 25px;}
+
+#uslugi .nav>li>a:focus, .nav>li>a:hover
+{background: none;
+border: 1px solid white;}
+
+#uslugi .nav>li>a:hover .icon_pass
+{background: #F1F1F1;}
+
+#uslugi .nav li.active:nth-child(1) .icon_active
+{background: #8CB026;
+ border-color: #799920;}
+#uslugi .nav li.active:nth-child(2) .icon_active
+{background: #2999E8;
+ border-color: #2387CF;}
+#uslugi .nav li.active:nth-child(3) .icon_active
+{background: #EE0000;
+ border-color: #EE0000;}
+#uslugi .nav li.active:nth-child(4) .icon_active
+{background: #9E248F;
+border-color: #9E248F;}
 /*image home*/
 .c{
   border-radius: 50% 50%;

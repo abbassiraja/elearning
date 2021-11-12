@@ -1,6 +1,6 @@
 
   
-
+/* navbar */
 
 .overlay {
   position: fixed;
@@ -251,7 +251,11 @@ body{
 /*titre home */
 h1{
   color: #4d80eed5;
+  margin-left: 400px;
 }
+
+/* qui sommes nous home*/
+
 /*image home*/
 .c{
   border-radius: 50% 50%;
@@ -265,7 +269,7 @@ h1{
 
 .container {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     flex-wrap: wrap;
 }
 

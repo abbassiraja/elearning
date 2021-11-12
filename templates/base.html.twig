@@ -27,7 +27,7 @@
         <li class="navbar-dropdown">
           <a href="{{path('home')}}">Acceuil</a></li>
            <li class="navbar-dropdown">
-          <a href="{{path('ecoles')}}">Écoles</a></li>
+          <a href="{{path('scool')}}">Écoles</a></li>
       <ul class="navbar-links">
         <li class="navbar-dropdown">
           <a href="{{path('matieres')}}">Matières</a>
@@ -123,5 +123,262 @@
         
          
          <script src="{{asset('jquery/jquery-3.5.1.min.slim.js')}}"></script>
-    </body>
+ </body>
 </html>
+<!--footer-->
+     
+
+<footer class="flex-rw">
+  
+  <ul class="foot-list-top">
+    <li>
+      <h4 class="foot-list-header">About Pavilion</h4></li>
+    <li><a href='/shop/about-mission' class="generic-anchor foot-list-anchor" itemprop="significantLink">GET TO KNOW US</a></li>
+    <li><a href='/promos.html' class="generic-anchor foot-list-anchor" itemprop="significantLink">PROMOS</a></li>
+    <li><a href='/retailers/new-retailers.html' class="generic-anchor foot-list-anchor" itemprop="significantLink">BECOME A RETAILER</a></li>
+
+    <li><a href='/job-openings.html' itemprop="significantLink" class="generic-anchor foot-list-anchor">JOB OPENINGS</a></li>
+
+    <li><a href='/shop/about-show-schedule' class="generic-anchor foot-list-anchor" itemprop="significantLink">EVENTS</a></li>
+  </ul>
+  <ul class="foot-list-top">
+    <li>
+      <h4 class="foot-list-header">The Gift Selection</h4></li>
+
+
+    <li><a href='/Angels/cat/id/70' class="generic-anchor foot-list-anchor">ANGEL FIGURINES</a></li>
+    <li><a href='/Home-Decor/cat/id/64' class="generic-anchor foot-list-anchor">HOME DECOR</a></li>
+    <li><a href='/Mugs/cat/id/32' class="generic-anchor foot-list-anchor">MUGS</a></li>
+    <li><a href='/Pet-Lover/cat/id/108' class="generic-anchor foot-list-anchor">PET LOVER</a></li>
+    <li><a href='/Ladies-Accessories/cat/id/117' class="generic-anchor foot-list-anchor" target="_blank">HANDBAGS & JEWELRY</a></li>
+  </ul>
+  <ul class="foot-list-top">
+    <li id='help'>
+      <h4 class="foot-list-header">Please Help Me</h4></li>
+    <li><a href='/shop/about-contact' class="generic-anchor foot-list-anchor" itemprop="significantLink">CONTACT</a></li>
+    <li><a href='/faq.html' class="generic-anchor foot-list-anchor" itemprop="significantLink">FAQ</a></li>
+    <li id='find-a-store'><a href='/shop/store-locator' class="generic-anchor foot-list-anchor" itemprop="significantLink">STORE LOCATOR</a></li>
+    <li id='user-registration'><a href='/shop/user-registration?URL=' class="generic-anchor foot-list-anchor" itemprop="significantLink">NEW USERS</a></li>
+    <li id='order-tracking'><a href='/shop/order-status' itemprop="significantLink" class="generic-anchor foot-list-anchor">ORDER STATUS</a></li>
+  </ul>
+  <div class="foot-social-section flex-rw">
+      <span class="foot-social-overlap foot-social-connect">
+      CONNECT <span class="foot-social-small">with</span> US
+      </span>
+      <span class="foot-social-overlap foot-social-icons-wrapper">
+      <a href="https://www.pinterest.com/paviliongift/" class="generic-anchor" target="_blank" title="Pinterest" itemprop="significantLink"><i class="fa fa-pinterest"></i></a>
+      <a href="https://www.facebook.com/paviliongift" class="generic-anchor" target="_blank" title="Facebook" itemprop="significantLink"><i class="fa fa-facebook"></i></a>
+      <a href="https://twitter.com/PavilionGiftCo" class="generic-anchor" target="_blank" title="Twitter" itemprop="significantLink"><i class="fa fa-twitter"></i></a>
+      <a href="http://instagram.com/paviliongiftcompany" class="generic-anchor" target="_blank" title="Instagram" itemprop="significantLink"><i class="fa fa-instagram"></i></a>
+      <a href="https://www.youtube.com/channel/UCYgUODvd0qXbu_LkUWpTVEg" class="generic-anchor" target="_blank" title="Youtube" itemprop="significantLink"><i class="fa fa-youtube"></i></a>
+      <a href="https://plus.google.com/+Paviliongift/posts" class="generic-anchor" target="_blank" title="Google Plus" itemprop="significantLink"><i class="fa fa-google-plus"></i></a>
+      </span>
+  </div>
+  <div class="foot-bottom-section flex-rw">
+<div class="foot-bottom-wrapper">   
+<i class="fa fa-copyright" role="copyright">
+ 
+</i> 2019 Pavilion in <address class="foot-address" role="company address">Bergen, NY</address><span class="foot-bottom-rights"> - All Rights Reserved - </span>
+    </div>
+    <div class="foot-bottom-wrapper">
+    <a href="/terms-of-use.html" class="generic-anchor" rel="nofollow">Terms</a> | <a href="/privacy-policy.html" class="generic-anchor" rel="nofollow">Privacy</a>
+      </div>
+  </div>
+</footer>
+
+<!--style footer-->
+<style>
+
+ul {
+  list-style: none
+}
+a {
+  text-decoration: none
+}
+.generic-anchor {
+	color: $primary-light-blue;
+	&:visited {
+		color: $primary-light-blue
+	}
+	&:hover {
+		color: $primary-line-color
+	}
+}
+.flex-rw {
+  display: flex;
+  flex-flow: row wrap;
+}
+//This main is mostly to push the footer to the bottom and for demo purposes.
+main {
+  flex: 1 1 auto; //For IE11
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font: 10em "Oswald", sans-serif;
+  color: rgb(155,155,155);
+  line-height: 1
+}
+footer {
+  background: rgb(55,55,55);
+  margin-top: auto;
+  width: 100%
+}
+.foot-list-top {
+  width: 33.333%
+}
+.foot-list-top > li {
+  text-align: center;
+  padding-bottom: 10px
+}
+.foot-list-header {
+  padding: 10px 0 5px 0;
+  color: #fff;
+  font: 2.3vw "Oswald", sans-serif
+}
+.foot-list-anchor {
+  font: 1.3em "Open Sans", sans-serif
+}
+.foot-social-section {
+  width: 100%;
+  align-items: center;
+  justify-content: space-around;
+  position: relative;
+  margin-top: 5px;
+}
+.foot-social-section::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 10px;
+  border-top: 1px solid $primary-line-color;
+  width: calc(100% - 20px)
+}
+.foot-social-overlap {
+  position: relative;
+  z-index: 2;
+  background: rgb(55,55,55);
+  padding: 0 20px
+}
+.foot-social-connect {
+  display: flex;
+  align-items: center;
+  font: 3.5em "Oswald", sans-serif;
+  color: #fff
+}
+.foot-social-small {
+  font-size: 0.6em;
+  padding: 0px 20px
+}
+.foot-social-overlap > a {
+  font-size: 3em
+}
+.foot-social-overlap > a:not(:first-child) {
+  margin-left: 0.38em
+}
+.foot-bottom-section {
+  width: 100%;
+  padding: 10px;
+  border-top: 1px solid $primary-line-color;
+  margin-top: 10px
+}
+.foot-bottom-section > div:first-child {
+  margin-right: auto
+}
+.foot-bottom-wrapper {
+  font-size: 1.5em;
+  color: #fff
+}
+.foot-address {
+  display: inline;
+  font-style: normal
+}
+@media only screen and (max-width: 768px) {
+  .foot-list-header {
+    font-size: 2em
+  }
+  .foot-list-anchor {
+    font-size: 1.1em
+  }
+  .foot-social-connect {
+    font-size: 2.5em
+  }
+  .foot-social-overlap > a {
+    font-size: 2.24em
+  }
+  .foot-bottom-wrapper {
+    font-size: 1.3em
+  }
+}
+@media only screen and (max-width: 568px) {
+
+  .foot-list-top {
+    width: 100%
+  }
+  .foot-list-header {
+    font-size: 3em;
+  }
+  .foot-list-anchor {
+    font-size: 1.5em
+  }
+  .foot-social-section {
+    justify-content: center
+  }
+  .foot-social-section::after {
+    top: 25%
+  }
+  .foot-social-connect {
+    margin-bottom: 10px;
+    padding: 0 10px
+  }
+  .foot-social-overlap {
+    display: flex;
+    justify-content: center;
+  }
+  .foot-social-icons-wrapper {
+    width: 100%;
+    padding: 0
+  }
+  .foot-social-overlap > a:not(:first-child) {
+    margin-left: 20px;
+  }
+  .foot-bottom-section {
+    padding: 0 5px 10px 5px
+  }
+  .foot-bottom-wrapper {
+    text-align: center;
+    width: 100%;
+    margin-top: 10px
+  }
+}
+@media only screen and (max-width: 480px) {
+  .foot-social-overlap > a {
+    margin: auto
+  }
+  .foot-social-overlap > a:not(:first-child) {
+    margin-left: 0;
+  }
+  .foot-bottom-rights {
+    display: block
+  }
+}
+@media only screen and (max-width: 320px) {
+  .foot-list-header {
+    font-size: 2.2em
+  }
+  .foot-list-anchor {
+    font-size: 1.2em
+  }
+  .foot-social-connect {
+    font-size: 2.4em
+  }
+  .foot-social-overlap > a {
+    font-size: 2.24em
+  }
+  .foot-bottom-wrapper {
+    font-size: 1.3em
+  }
+}
+
+</style>
+

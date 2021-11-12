@@ -18,14 +18,9 @@ class Commentaire
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="text")
      */
     private $text;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $nomutilisateur;
 
     /**
      * @ORM\Column(type="datetime_immutable")
@@ -33,16 +28,26 @@ class Commentaire
     private $createdAt;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Admin::class)
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\Column(type="string", length=255)
      */
-    private $admin;
+    private $username;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $image;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class)
      * @ORM\JoinColumn(nullable=false)
      */
     private $user;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Admin::class)
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $admin;
 
     /**
      * @ORM\ManyToOne(targetEntity=Cours::class)
@@ -67,18 +72,6 @@ class Commentaire
         return $this;
     }
 
-    public function getNomutilisateur(): ?string
-    {
-        return $this->nomutilisateur;
-    }
-
-    public function setNomutilisateur(string $nomutilisateur): self
-    {
-        $this->nomutilisateur = $nomutilisateur;
-
-        return $this;
-    }
-
     public function getCreatedAt(): ?\DateTimeImmutable
     {
         return $this->createdAt;
@@ -91,14 +84,26 @@ class Commentaire
         return $this;
     }
 
-    public function getAdmin(): ?Admin
+    public function getUsername(): ?string
     {
-        return $this->admin;
+        return $this->username;
     }
 
-    public function setAdmin(?Admin $admin): self
+    public function setUsername(string $username): self
     {
-        $this->admin = $admin;
+        $this->username = $username;
+
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(string $image): self
+    {
+        $this->image = $image;
 
         return $this;
     }
@@ -111,6 +116,18 @@ class Commentaire
     public function setUser(?User $user): self
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    public function getAdmin(): ?Admin
+    {
+        return $this->admin;
+    }
+
+    public function setAdmin(?Admin $admin): self
+    {
+        $this->admin = $admin;
 
         return $this;
     }

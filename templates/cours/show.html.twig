@@ -1,7 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} Cours{% endblock %}
-
+{% block title %}Show{% endblock %}
 {% block body %}
 <style>
 .h{
@@ -28,41 +27,37 @@ ul li {
 }
 
 </style>
-<div class="container">
-  <div class="row">
-    <div class="col-lg-12  ">
-     <h2 class="h" >Ici vous trouvez nos cours</h2>
-    </div>
-  </div>
-</div>
 
 <div class="container mt-5">
 
-{% for item in cour %}
+
   <div class="row">
     <div class="col-sm-4 col-md-4">
         	<div class="card">
             <div class="card-header">
-        		  <h2 class="text-warning">{{item.nom}}{{item.matiere}}</h2>
+        		  <h2 class="text-warning">{{cour.nom}}{{cour.matiere}}</h2>
             </div>
             <div class="card-body">
-              <h3 class="label label-info">{{item.niveauscolaire}}</h3>
+              <h3 class="label label-info">{{cour.niveauscolaire}}</h3>
               <ul>
                 <li><i class="fas fa-check"></i>50 utilisateurs </li>
                 <li><i class="fas fa-check"></i> Apprendre les bases</li>
                 <li><i class="fas fa-check"></i> Apprendre rapidement</li>              
                 <li><i class="fas fa-check"></i> Apprendre facilement</li>
               </ul>          
-              <p>{{item.description}}</p>
+              <p>{{cour.description}}</p>
               <hr>
-              <h4>{{item.prix}} / month</h4>
+              <h4>{{cour.prix}} / month</h4>
               <hr>
-              <p><a class="btn btn-warning btn-lg" href="{{path('cour_show', {'id':item.id})}}"><i class="icon-ok"></i>detail</a></p>
+              <p><a class="btn btn-warning btn-lg" href="#"><i class="icon-ok"></i>detail</a></p>
             </div>
         	</div>
      </div>
 		
 	</div>
-  {% endfor %}
+  
 </div>
+
+
+
 {% endblock %}

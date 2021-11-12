@@ -21,7 +21,7 @@ class EcolesController extends AbstractController
     }
 
     /**
-     * @Route("/ecoles", name="ecoles")
+     * @Route("/scool", name="scool")
      */
     public function index(): Response
     { 

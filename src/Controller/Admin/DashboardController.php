@@ -2,12 +2,13 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\Commentaire;
+use App\Entity\User;
+use App\Entity\Cours;
 use App\Entity\Ecoles;
 use App\Entity\Matieres;
-use App\Entity\NiveauScolaire;
 use App\Entity\Publicite;
-use App\Entity\User;
+use App\Entity\Commentaire;
+use App\Entity\NiveauScolaire;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -39,6 +40,7 @@ class DashboardController extends AbstractDashboardController
        yield MenuItem::linkToCrud('Matieres', 'fas fa-list', Matieres::class);
        yield MenuItem::linkToCrud('Publicite', 'fas fa-list', Publicite::class);
        yield MenuItem::linkToCrud('Commentaires', 'fas fa-list', Commentaire::class);
+       yield MenuItem::linkToCrud('Cours', 'fas fa-list', Cours::class);
        
 
     }

@@ -10,27 +10,16 @@
 /* test  */
 @import url('https://fonts.googleapis.com/css?family=Sarabun:300,600');
 
-*,
-*::before,
-*::after { 
-  box-sizing: border-box; 
-}
 
-:root {
-  --blue: #1e88e5;
-  --black: #000;
-  --dark-grey: #444;
-  --light-grey: #eee;
-  --red: #f44336;
-  --yellow: #fdd835;
-  --white: #fff;
-}
+
+
 
 body {
   background: var(--light-grey);
 }
 
 .container {
+  margin-bottom:300px;
   align-items: center;
   display: grid;
   grid-template-columns: repeat(3, minmax(300px, 1fr));
@@ -41,7 +30,7 @@ body {
 
 @media (max-width: 900px) {
   .container {
-    grid-template-rows: repeat(3, 1fr) !important;
+    grid-template-rows: repeat(6, 1fr) !important;
     grid-template-columns: minmax(300px, 1fr);
   }
 }

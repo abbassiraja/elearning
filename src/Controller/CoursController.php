@@ -29,4 +29,21 @@ class CoursController extends AbstractController
             'cour' => $cour,
         ]);
     }
+
+
+
+       /**
+    * @Route("/show/{id}",name="cour_show")
+    */
+
+    public function show($id){
+     
+        $cour = $this->getDoctrine()
+        ->getRepository(Cours::class)
+        ->findOneBy(['id'=>$id]);
+        return $this->render('cours/show.html.twig',[
+            
+            'cour' => $cour
+        ]);
+    }
 }

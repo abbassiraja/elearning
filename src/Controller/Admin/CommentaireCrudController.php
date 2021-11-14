@@ -20,6 +20,7 @@ class CommentaireCrudController extends AbstractCrudController
         return [
            
          TextField::new('text'),
+         TextField::new('nomutilisateur'),
          AssociationField::new('cour'),
          AssociationField::new('user'),
         ];

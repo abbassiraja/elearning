@@ -77,7 +77,7 @@
 
         </li>
         {% endif %}
-         <li><a href="#"><img src="{{asset('images/logopanier.png')}}" alt="" style="width:30px; height:30px;"  ></a></li>
+         <li><a href="{{path('panier')}}"><img src="{{asset('images/logopanier.png')}}" alt="" style="width:30px; height:30px;"  ></a></li>
       </ul>
     </nav>
    
@@ -174,16 +174,8 @@
       <a href="https://plus.google.com/+Paviliongift/posts" class="generic-anchor" target="_blank" title="Google Plus" itemprop="significantLink"><i class="fa fa-google-plus"></i></a>
       </span>
   </div>
-  <div class="foot-bottom-section flex-rw">
-<div class="foot-bottom-wrapper">   
-<i class="fa fa-copyright" role="copyright">
- 
-</i> 2019 Pavilion in <address class="foot-address" role="company address">Bergen, NY</address><span class="foot-bottom-rights"> - All Rights Reserved - </span>
-    </div>
-    <div class="foot-bottom-wrapper">
-    <a href="/terms-of-use.html" class="generic-anchor" rel="nofollow">Terms</a> | <a href="/privacy-policy.html" class="generic-anchor" rel="nofollow">Privacy</a>
-      </div>
-  </div>
+  
+
 </footer>
 
 <!--style footer-->
@@ -306,9 +298,7 @@ footer {
   .foot-social-overlap > a {
     font-size: 2.24em
   }
-  .foot-bottom-wrapper {
-    font-size: 1.3em
-  }
+ 
 }
 @media only screen and (max-width: 568px) {
 
@@ -375,9 +365,7 @@ footer {
   .foot-social-overlap > a {
     font-size: 2.24em
   }
-  .foot-bottom-wrapper {
-    font-size: 1.3em
-  }
+ 
 }
 
 </style>

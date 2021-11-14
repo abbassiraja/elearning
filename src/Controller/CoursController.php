@@ -3,7 +3,11 @@
 namespace App\Controller;
 
 use App\Entity\Cours;
+use DateTimeImmutable;
+use App\Entity\Commentaire;
+use App\Form\CommentaireType;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -32,7 +36,8 @@ class CoursController extends AbstractController
 
 
 
-       /**
+     
+    /**
     * @Route("/show/{id}",name="cour_show")
     */
 
@@ -46,4 +51,9 @@ class CoursController extends AbstractController
             'cour' => $cour
         ]);
     }
+
+
 }
+
+
+   

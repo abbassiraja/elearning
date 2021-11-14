@@ -18,64 +18,51 @@ class Publicite
     private $id;
 
     /**
+     * @ORM\ManyToOne(targetEntity=Cours::class)
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $cour;
+
+    /**
      * @ORM\Column(type="string", length=255)
      */
-    private $description;
-
-    /**
-     * @ORM\ManyToOne(targetEntity=Ecoles::class)
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $ecole;
-
-    /**
-     * @ORM\ManyToOne(targetEntity=Admin::class)
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $admin;
+    private $titre;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
     private $image;
 
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $description;
+
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getDescription(): ?string
+    public function getCour(): ?Cours
     {
-        return $this->description;
+        return $this->cour;
     }
 
-    public function setDescription(string $description): self
+    public function setCour(?Cours $cour): self
     {
-        $this->description = $description;
+        $this->cour = $cour;
 
         return $this;
     }
 
-    public function getEcole(): ?Ecoles
+    public function getTitre(): ?string
     {
-        return $this->ecole;
+        return $this->titre;
     }
 
-    public function setEcole(?Ecoles $ecole): self
+    public function setTitre(string $titre): self
     {
-        $this->ecole = $ecole;
-
-        return $this;
-    }
-
-    public function getAdmin(): ?Admin
-    {
-        return $this->admin;
-    }
-
-    public function setAdmin(?Admin $admin): self
-    {
-        $this->admin = $admin;
+        $this->titre = $titre;
 
         return $this;
     }
@@ -88,6 +75,18 @@ class Publicite
     public function setImage(string $image): self
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(string $description): self
+    {
+        $this->description = $description;
 
         return $this;
     }

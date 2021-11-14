@@ -36,6 +36,7 @@ ul li {
         	<div class="card">
             <div class="card-header">
         		  <h2 class="text-warning">{{cour.nom}}{{cour.matiere}}</h2>
+              <h1>ref: {{cour.reference}}</h1>
             </div>
             <div class="card-body">
               <h3 class="label label-info">{{cour.niveauscolaire}}</h3>
@@ -47,9 +48,9 @@ ul li {
               </ul>          
               <p>{{cour.description}}</p>
               <hr>
-              <h4>{{cour.prix}} / month</h4>
+              <h4>{{cour.prix}}$ / month</h4>
               <hr>
-              <p><a class="btn btn-warning btn-lg" href="#"><i class="icon-ok"></i>detail</a></p>
+              <p><a class="btn btn-warning btn-lg" href="#"><i class="icon-ok"></i>Ajouter au panier</a></p>
             </div>
         	</div>
      </div>
@@ -58,6 +59,40 @@ ul li {
   
 </div>
 
+<!--commentaire-->
+<h2 class="text-capitalize" >Commentaires <span >{{cour.getCommentaires.count}}</span></h2>
+
+                {% if is_granted('ROLE_USER') %}
+                <form action="{{path('comment_add')}}" method="post">
+                <div>
+                        <div class="form-group">
+                            <textarea type="text" placeholder="Ajouter votre commentaire" rows="5" cols="20" name="_comment" id="comment" required class="form-control"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary" id="login" name="login">
+                                Valider
+                            </button>
+                        </div>
+                        <input type="hidden" name="_csrf_token" value="{{csrf_token('authenticate')}}">
+                        <input type="hidden" name="post_id" value="{{cour.id}}">
+                    </div>
+                </form>
+                <hr>
+                {% else %}
+                    <a href="{{path('app_login')}}" class="btn btn-link">Connectez vous pour commenter</a>
+                {% endif %}
+                <!-- show comments -->
+                {% for commentaire in cour.getCommentaires %}
+                <div class="media mt-3">
+                    <div class="media-body">
+                        <span class="comment-username"> {{commentaire.nomutilisateur}}{{commentaire.createdAt|date("F jS \a\t g:ia")}}</span>
+                        <p class="comment mt-2">{{commentaire.text}}</p>
+                    </div>
+                    <hr>
+                </div>
+                {% endfor %}
+            </div>
 
 
+        </div>
 {% endblock %}

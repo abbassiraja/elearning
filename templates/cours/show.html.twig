@@ -50,7 +50,7 @@ ul li {
               <hr>
               <h4>{{cour.prix}}$ / month</h4>
               <hr>
-              <p><a class="btn btn-warning btn-lg" href="#"><i class="icon-ok"></i>Ajouter au panier</a></p>
+              <p><a class="btn btn-warning btn-lg" href="{{path('cart_add',{'id': cour.id})}}"><i class="icon-ok"></i>Ajouter au panier</a></p>
             </div>
         	</div>
      </div>

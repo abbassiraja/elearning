@@ -53,6 +53,16 @@ class Ecoles
      */
     private $description;
 
+    /**
+     * @ORM\Column(type="float")
+     */
+    private $lat;
+
+    /**
+     * @ORM\Column(type="float")
+     */
+    private $lon;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -143,5 +153,29 @@ class Ecoles
     }
     public function __toString(){
         return $this->nom;
+    }
+
+    public function getLat(): ?float
+    {
+        return $this->lat;
+    }
+
+    public function setLat(float $lat): self
+    {
+        $this->lat = $lat;
+
+        return $this;
+    }
+
+    public function getLon(): ?float
+    {
+        return $this->lon;
+    }
+
+    public function setLon(float $lon): self
+    {
+        $this->lon = $lon;
+
+        return $this;
     }
 }

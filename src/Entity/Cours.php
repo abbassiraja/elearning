@@ -170,6 +170,7 @@ class Cours
 
         return $this;
     }
-
-    
+   
 }
+    
+

@@ -3,6 +3,7 @@
 {% block title %}Hello EcolesController!{% endblock %}
 
 {% block body %}
+<div id="macarte"></div>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
@@ -69,6 +70,31 @@
   transition-delay: 0.1s;
 }
 </style>
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+ <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin=""></script>
+   <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+<script>
+
+
+var carte = L.map('macarte').setView([36.80278, 10.17972], 13);
+L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
+    attribution: 'données @ <a href="//osm.org/copyright">OpenStreetMap</a>/ODbL - rendu <a href="//openstreetmap.fr">OSM France </a>',
+    
+    maxZoom: 20,
+   
+    minZoom: 1,
+    
+}).addTo(carte);
+
+{% for item in ecole %}
+  // On crée le marqueur et on lui attribue une popup
+  var marqueur = L.marker([{{ item.lat }}, {{ item.lon }}]).addTo(carte); //.addTo(carte);
+  marqueur.bindPopup("<h3>{{ item.nom }}</h3>");
+
+  {% endfor %}
+</script>
 
 <div class="container">
 {% for item in ecole %}
@@ -87,4 +113,6 @@
   </div>
   {% endfor %}
 </div>
+
+
 {% endblock %}

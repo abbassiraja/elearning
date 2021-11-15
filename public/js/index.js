@@ -90,4 +90,5 @@ css.innerHTML += "}\n";
 css.innerHTML += "#slidy { left: 0%; "+keyframeprefix+"transform: translate3d(0,0,0); "+keyframeprefix+"animation: "+totalTime+"s slidy infinite; }\n"; // call on the completed keyframe animation sequence
 document.body.appendChild(css); // add the new stylesheet to the end of the document
 }
-//qui sommes nous page home
+//publicité page home
+

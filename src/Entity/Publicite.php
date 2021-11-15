@@ -17,11 +17,7 @@ class Publicite
      */
     private $id;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=Cours::class)
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $cour;
+   
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -38,22 +34,18 @@ class Publicite
      */
     private $description;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Ecoles::class)
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $ecole;
+
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getCour(): ?Cours
-    {
-        return $this->cour;
-    }
-
-    public function setCour(?Cours $cour): self
-    {
-        $this->cour = $cour;
-
-        return $this;
-    }
+  
 
     public function getTitre(): ?string
     {
@@ -90,4 +82,17 @@ class Publicite
 
         return $this;
     }
+
+    public function getEcole(): ?Ecoles
+    {
+        return $this->ecole;
+    }
+
+    public function setEcole(?Ecoles $ecole): self
+    {
+        $this->ecole = $ecole;
+
+        return $this;
+    }
+  
 }

@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Ecoles;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
 class EcolesCrudController extends AbstractCrudController
@@ -26,6 +27,8 @@ class EcolesCrudController extends AbstractCrudController
                ->setUploadedFileNamePattern('[randomhash].[extension]'),
             TextField::new('nom'),
             TextField::new('description'),
+            NumberField::new('lat'),
+            NumberField::new('lon'),
            
         ];
     }

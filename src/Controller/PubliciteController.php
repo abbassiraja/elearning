@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class HomeController extends AbstractController
+class PubliciteController extends AbstractController
 {
     private $entityManager;
 
@@ -17,15 +17,13 @@ class HomeController extends AbstractController
         $this->entityManager = $entityManager;
     }
     /**
-     * @Route("/", name="home")
+     * @Route("/publicite", name="publicite")
      */
     public function index(): Response
     {
         $pub = $this->entityManager->getRepository(Publicite::class)->findAll();
-        return $this->render('home/index.html.twig', [
-            'pub' => $pub
+        return $this->render('publicite/index.html.twig', [
+            'pub' =>$pub,
         ]);
     }
-
-    
 }

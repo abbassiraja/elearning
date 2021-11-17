@@ -4,142 +4,194 @@
 
 {% block body %}
 <style>
-   
+/* Font */
+@import url('https://fonts.googleapis.com/css?family=Quicksand:400,700');
 
+/* Design */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
-/* test  */
-@import url('https://fonts.googleapis.com/css?family=Sarabun:300,600');
-
-
-
-
+html {
+  background-color: #ecf9ff;
+}
 
 body {
-  background: var(--light-grey);
+  color: #272727;
+  font-family: 'Quicksand', serif;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0;
+  padding: 1rem;
 }
 
-.container {
-  margin-bottom:300px;
-  align-items: center;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(300px, 1fr));
-  grid-template-rows: 1;
-  height: 100vh;
-  justify-items: center;
+.main{
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-@media (max-width: 900px) {
-  .container {
-    grid-template-rows: repeat(6, 1fr) !important;
-    grid-template-columns: minmax(300px, 1fr);
+h1 {
+    font-size: 24px;
+    font-weight: 400;
+    text-align: center;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+.btn {
+  color: #ffffff;
+  padding: 0.8rem;
+  font-size: 14px;
+  text-transform: uppercase;
+  border-radius: 4px;
+  font-weight: 400;
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: transparent;
+}
+
+.btn:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cards_item {
+  display: flex;
+  padding: 1rem;
+}
+
+@media (min-width: 40rem) {
+  .cards_item {
+    width: 50%;
+  }
+}
+
+@media (min-width: 56rem) {
+  .cards_item {
+    width: 33.3333%;
   }
 }
 
 .card {
-  background: var(--white);
-  border: none;
-  border-radius: 5px;
-  box-shadow: 0 15px 25px rgba(0,0,0,.19), 0 6px 6px rgba(0,0,0,.05);
-  font-family: Sarabun, sans-serif;
-  margin: 50px;
-  padding: 20px;
-  -webkit-transition: all 1s; 
-  transition: all 1s;
-  width: 245px;
-}
-
-.card:hover {
-  color: var(--white);
-  transform: translateY(-50px);
-}
-
-.card1:hover {
-  background: var(--red);
-  box-shadow: 0 15px 30px rgba(244,67,54,.65);
-}
-
-.card2:hover {
-  background: var(--blue);
-  box-shadow: 0 15px 30px rgba(30,136,229,.65);
-}
-
-.card3:hover {
-  background: var(--yellow);
-  box-shadow: 0 15px 30px rgba(253,216,53,.65);
-  color: var(--dark-grey);
-}
-
-.content__cover {
-  height: 200px;
-  object-fit: cover;
+  background-color: white;
+  border-radius: 0.25rem;
+  box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
-  width: 200px;
 }
 
-.cover__img--food1  {
-  object-position: -50px -20px;
-  width: 200%;
+.card_content {
+  padding: 1rem;
+  background: linear-gradient(to bottom left, #EF8D9C 40%, #FFC39E 100%);
 }
 
-.cover__img--food2  {
-  object-position: -150px -80px;
-  width: 260%;
+.card_title {
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+  margin: 0px;
 }
 
-.cover__img--food3  {
-  object-position: -50px 0px;
-  width: 160%;
+.card_text {
+  color: #ffffff;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin-bottom: 1.25rem;    
+  font-weight: 400;
 }
-
-.content__title { font-size: 1.25em; }
-
-.title__divider { border: 0.5px dashed; }
-
-.footer__links {
-  color: var(--black);
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 1s;
+.made_by{
+  font-weight: 400;
+  font-size: 13px;
+  margin-top: 35px;
+  text-align: center;
 }
-
-.links__checkbox {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-}
-
-.links__checkbox + label {
-  border: 1px solid;
-  display: inline-block;
-  height: 15px;
-  margin: 5px 5px -2px -8px;
-  width: 15px;
-}
-
-
 </style>
-
-
-
-<section class="container">
-{% for item in matiere %}
-<div class="card card1">
-  <div class="card__content">
-    <div class="content__cover">
-      <img class="cover__img--food1" src="/images/{{item.image}}">
-    </div>
-    <div class="content__text">
-      <h4 class="content__title">Matière: {{item.nom}}</br> Niveau:{{item.niveauscolaire}} </h4>
-      <hr class="title__divider">
-      
-    </div>
-    <div class="content__footer">
-      <button><a href="{{path('cours')}}">cours</a></button>
-    </div>
-  </div>
+   
+<div class="main">
+  <h1>Responsive Card Grid Layout</h1>
+  <ul class="cards">
+    <li class="cards_item">
+      <div class="card">
+        <div class="card_image"><img src="https://picsum.photos/500/300/?image=10"></div>
+        <div class="card_content">
+          <h2 class="card_title">Card Grid Layout</h2>
+          <p class="card_text">Demo of pixel perfect pure CSS simple responsive card grid layout</p>
+          <button class="btn card_btn">Read More</button>
+        </div>
+      </div>
+    </li>
+    <li class="cards_item">
+      <div class="card">
+        <div class="card_image"><img src="https://picsum.photos/500/300/?image=5"></div>
+        <div class="card_content">
+          <h2 class="card_title">Card Grid Layout</h2>
+          <p class="card_text">Demo of pixel perfect pure CSS simple responsive card grid layout</p>
+          <button class="btn card_btn">Read More</button>
+        </div>
+      </div>
+    </li>
+    <li class="cards_item">
+      <div class="card">
+        <div class="card_image"><img src="https://picsum.photos/500/300/?image=11"></div>
+        <div class="card_content">
+          <h2 class="card_title">Card Grid Layout</h2>
+          <p class="card_text">Demo of pixel perfect pure CSS simple responsive card grid layout</p>
+          <button class="btn card_btn">Read More</button>
+        </div>
+      </div>
+    </li>
+    <li class="cards_item">
+      <div class="card">
+        <div class="card_image"><img src="https://picsum.photos/500/300/?image=14"></div>
+        <div class="card_content">
+          <h2 class="card_title">Card Grid Layout</h2>
+          <p class="card_text">Demo of pixel perfect pure CSS simple responsive card grid layout</p>
+          <button class="btn card_btn">Read More</button>
+        </div>
+      </div>
+    </li>
+    <li class="cards_item">
+      <div class="card">
+        <div class="card_image"><img src="https://picsum.photos/500/300/?image=17"></div>
+        <div class="card_content">
+          <h2 class="card_title">Card Grid Layout</h2>
+          <p class="card_text">Demo of pixel perfect pure CSS simple responsive card grid layout</p>
+          <button class="btn card_btn">Read More</button>
+        </div>
+      </div>
+    </li>
+    <li class="cards_item">
+      <div class="card">
+        <div class="card_image"><img src="https://picsum.photos/500/300/?image=2"></div>
+        <div class="card_content">
+          <h2 class="card_title">Card Grid Layout</h2>
+          <p class="card_text">Demo of pixel perfect pure CSS simple responsive card grid layout</p>
+          <button class="btn card_btn">Read More</button>
+        </div>
+      </div>
+    </li>
+  </ul>
 </div>
 
-{% endfor %}
-</section>
+<h3 class="made_by">Made with ♡</h3>
+
 
 {% endblock %}

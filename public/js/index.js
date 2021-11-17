@@ -91,4 +91,3 @@ css.innerHTML += "#slidy { left: 0%; "+keyframeprefix+"transform: translate3d(0,
 document.body.appendChild(css); // add the new stylesheet to the end of the document
 }
 //publicité page home
-

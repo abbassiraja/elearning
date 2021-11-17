@@ -4,111 +4,168 @@
 {% block title %} Home{% endblock %}
 
 {% block body %}
+<style>
+/*style pub*/
+
+/*style qui sommes nous*/
+section{
+  margin-top:50px;
+}
+.sliderdivitext{
+    display: inline-flex;
+    background-color: #FBFAE5;
+    box-sizing: content-box;
+    width: 100%;
+    
+}
+
+.textoslider{
+    font-size: 1rem;
+    letter-spacing: 1px;
+    color:rgb(52, 73, 3);
+    width: 50%;
+    height: 600px;
+    float: right;
+ }
+
+.tituloslider{
+    color: #1B5349 ;
+    text-align: center;
+    font-size: 2rem;
+    font-family: 'Bowlby One SC', cursive;
+    letter-spacing: 3px;
+}
+
+.tituloslider2{
+    color: #FBFAE5;
+    text-align: center;
+    font-size: 45px;
+    text-shadow: -3px -3px 5px  #FF7729 ;
+    font-family:'Bowlby One SC', cursive; 
+    letter-spacing: 4px;
+}
+
+p {
+    font-family: open sans;
+    font-size: 1em;
+    color:  #1B5349;
+    letter-spacing: 1px;
+}
+
+.slider {
+	width: 45%;
+	margin: auto;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+.slider ol {
+	display: flex;
+	padding: 0;
+    width: 400%;
+    
+	animation: cambio 20s infinite alternate linear;
+}
+
+.slider li {
+    width: 100%;
+    list-style: none;
+ 
+}
+
+.slider img {
+    width: 600px;
+    height: 300px;
+    border-radius: 10px;
+}
+
+@keyframes cambio {
+	0% {margin-left: 0;}
+	20% {margin-left: 0;}
+	
+	25% {margin-left: -100%;}
+	45% {margin-left: -100%;}
+	
+	50% {margin-left: -200%;}
+	70% {margin-left: -200%;}
+	
+	75% {margin-left: -300%;}
+	100% {margin-left: -300%;}
+}
+
+@media (max-width:600px){
+    .slider-portada{
+        width: 100%;
+        height: 400px;
+    }
+}
+@media (min-width:600px){
+ .slider-portada{
+     width: 100%;
+     height: 400px;
+ }   
+}
+/* Para dispositivos medianos */
+@media(min-width:768px){
+.slider-portada {
+width: 100%;
+height: 420px;
+    }
+}
+
+@media (min-width:992px){
+    .slider-portada{
+        width: 100%;
+        height: 400px;
+    }
+}
+/* Dispositivos muy grandes */
+@media (min-width:1200px){
+    .slider-portada{
+        width: 100%;
+        height: 600px;
+    }
+}
+</style>
 
 
-  <h1> Qui sommes-nous  </h1> 
+  <!--qui sommes nous-->
 
 
-<div class="main">
-<div id="uslugi" class="container">	
-<ul class="nav nav-tabs">
-		
-			<li class="col-md-4 col-sm-6 col-xs-12"><a href="#2" data-toggle="tab">
-        <div class="icons icon_pass"><img src="{{asset('images/c1.jpg')}}" style="width:150px; height:150px;"></div>
-        <div class="icons icon_active"><img src="{{asset('images/c1.jpg')}}" style="width:150px; height:150px;"></div>
-          <H3>+1500 cours</H3></a>
-			</li>
-			<li class="col-md-4 col-sm-6 col-xs-12"><a href="#3" data-toggle="tab">
-        <div class="icons icon_pass"><img src="{{asset('images/c2.jpg')}}" style="width:150px; height:150px;"></div>
-        <div class="icons icon_active"><img src="{{asset('images/c2.jpg')}}" style="width:150px; height:150px;"></div>
-          <H3>+500 utilisateurs</H3></a>
-			</li>
-  <li class="col-md-4 col-sm-6 col-xs-12"><a href="#4" data-toggle="tab">
-        <div class="icons icon_pass"><img src="{{asset('images/c3.jpg')}}" style="width:150px; height:150px;"></div>
-        <div class="icons icon_active"><img src="{{asset('images/c3.jpg')}}" style="width:150px; height:150px;"></div>
-          <H3>+200 exercices corrigés</H3></a>
-			</li>
-		</ul>
+<section class="sliderdivtext">
 
-			<div class="tab-content ">
-			  <div class="tab-pane active" id="1">
-          <div class="container" style="padding: 25px;">
-            <div class="col-md-7 col-sm-6 col-xs-12">
-              <h3>Mieux nous connaitre…</h3>
-              <p style="margin: 15px 0; max-width: 450px;">School@Home est une plateforme d’enseignement et  d’apprentissage en ligne destinée à tout le monde. Les cours sont tutorés par des agrégés, des profs d’enseignement et des experts à travers des vidéos et des visioconférences et restent accessibles en replay sans limite de temps.
-              School@Home plateforme d’apprentissage et de education Tunisie  accompagne les élèves et fait leur suivi tout au long de leur parcours scolaire, Dès la première année primaire jusqu’aux sixième année primaire.
+    <div class="textoslider"> 
 
-Nos professeurs hautement qualifiés vont vous fournir le soutien qu’il vous faut, Vous encourage et vous donne l’ambition et la motivation pour travailler davantage .</p>
-              <a href="{{path('niveau_scolaire')}}" target="_self"><span class="text">commencer >></span><i class="fa-angle-right"></i></a>
-            </div>
-            <div class="col-md-5 col-sm-6 col-xs-12"><img style="width: 100%; " src="{{asset('images/elearn0.png')}}"></div>
-          </div>
-				</div>
-				
-				
-      
-			</div>
-  </div>
+        <h1 class="tituloslider">
+          Qui sommes nous
+            <br>
+            <h2 class= "tituloslider2"> SCHOOL@HOME, E_LEARNING </h2> 
+        </h1>
+        <br>
+        <p>
+        School@home est une plateforme d’enseignement et  d’apprentissage en ligne destinée à tout le monde. Les cours sont tutorés par des agrégés, des profs d’enseignement et des experts à travers des vidéos et des visioconférences et restent accessibles en replay sans limite de temps.
+        </p>
+    </div>
 
+<div class="slider">
+    <ol>
+        <li>
+<img src= "{{asset('images/c3.jpg')}}" alt="ds1">
+</li>
+        <li>
+<img src="{{asset('images/c2.jpg')}}" alt="ds2">
+</li>
+        <li>
+<img src="{{asset('images/c1.jpg')}}" alt="ds3">
+</li>
+        <li>
+<img src="{{asset('images/elearn.jpg')}}" alt="ds4">
+</li>
+    </ol>
 </div>
+</section>
 
-
-
-<!-- Bootstrap core JavaScript
-    ================================================== -->
-	<!-- Placed at the end of the document so the pages load faster -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-
-  <!--publicité-->
-  
-
-
-    <!--teatcher-->
-
-
-  
-    <h1>Nos meilleurs professeurs</h1>
-  
-  
-    
-    <div class="container">
-    
-  <div class="card">
-    <img src="{{asset('images/prof1.jpg')}}" alt="">
-    <div class="details">
-      <h2>Jhon Veber</h2>
-      <div class="social-media-list">
-        <a href="#"><i class="fab fa-facebook"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-      </div>
-    </div>
-  </div>
-  <div class="card">
-    <img src="{{asset('images/prof3.jpg')}}" alt="">
-    <div class="details">
-      <h2>Ivan Pirogkov</h2>
-      <div class="social-media-list">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-       </div>
-      </div>
-     </div>
-     <div class="card">
-      <img src="{{asset('images/prof2.jpg')}}" alt="">
-      <div class="details">
-        <h2>Alex Zamyatin</h2>
-        <div class="social-media-list">
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"><i class="fab fa-twitter"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <script src="https://kit.fontawesome.com/e25b852c87.js" crossorigin="anonymous"></script>
+<!--publicité-->
 
 
 {% endblock %}

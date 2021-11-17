@@ -24,7 +24,7 @@ class PubliciteCrudController extends AbstractCrudController
             ->setUploadDir('public/images')
             ->setUploadedFileNamePattern('[randomhash].[extension]'),
          AssociationField::new('ecole'),
-         TextField::new('titre'),
+         
          TextField::new('description'),
         ];
     }

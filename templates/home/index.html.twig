@@ -6,165 +6,336 @@
 {% block body %}
 <style>
 /*style qui sommes nous*/
-section{
-  margin-top:50px;
+
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500&family=Montserrat&display=swap');
+
+*,
+*::before,
+*::after {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
-.sliderdivitext{
-    display: inline-flex;
-    background-color: #FBFAE5;
-    box-sizing: content-box;
-    width: 100%;
-    
+body {
+  font:400 1rem/1.4 'Montserrat',sans-serif;
+  
+  background-size:cover;
+  background-repeat:no-repeat;
+}
+.card--container {
+  width:80%;
+  margin:1em auto;
+}
+.profile__card {
+  min-width:100%;
+  background-color:#fff;
+  box-shadow:2px 2px 5px rgba(0,0,0,.4);
+  display:grid;
+  grid-template-columns:1fr;
+  grid-template-areas:'header'
+                      'image'
+                       'body';
+  place-items:Center;
+}
+.card__header {
+  grid-area:header;
+  background-color:#010d20;
+  min-width:100%;
+  border-bottom:2px dashed #fff;
+}
+.card__header h2 {
+  font-weight:600;
+  font-family:'Lora',sans-serif;
+  font-size:1.8rem;
+  text-align:Center;
+  color:#fff;
+  padding:.3em 0;
+}
+.image__container {
+  padding:1.5em 0 2em;
+  background-color:#001230;
+  width:100%;
+  height:100%;
+  clip-path:polygon(0 0,100% 0,100% 100%,97% 93%,94% 100%,91% 93%,88% 100%,84% 93%,81% 100%,78% 93%,75% 100%,72% 93%,69% 100%,66% 93%,63% 100%,60% 93%,57% 100%,54% 93%,51% 100%,48% 93%,45% 100%,42% 93%,38.5% 100%,36% 93%,33% 100%,30% 93%,27% 100%,24% 93%,21% 100%,18% 93%,15% 100%,12% 93%,9% 100%,6% 93%,3% 100%,0 93%);
+  display:flex;
+  align-items:Center;
+  justify-content:Center;
+}
+.card__image {
+  width:200px;
+  height:200px;
+  background-color:blue;
+  border-radius:50%;
+  box-shadow:0 0 5px rgba(0,0,0,.5)
+}
+.card__image img {
+  min-width:100%;
+  border-radius:50%;
+  object-fit:cover;
 }
 
-.textoslider{
-    font-size: 1rem;
-    letter-spacing: 1px;
-    color:rgb(52, 73, 3);
-    width: 50%;
-    height: 600px;
-    float: right;
- }
-
-.tituloslider{
-    color: #1B5349 ;
-    text-align: center;
-    font-size: 2rem;
-    font-family: 'Bowlby One SC', cursive;
-    letter-spacing: 3px;
+.about__me {
+  color:#7b7d84;
+  font-weight:500;
+  font-size:.9rem;
+  padding:1em;  
+  border-bottom:3px dashed black;
+}
+.important__social__links {
+ background-color:#187de7;
+  padding:.5em;
+  display:flex;
+  justify-content:space-evenly;
+  font-size:1.5rem;
 }
 
-.tituloslider2{
-    color: #FBFAE5;
-    text-align: center;
-    font-size: 45px;
-    text-shadow: -3px -3px 5px  #FF7729 ;
-    font-family:'Bowlby One SC', cursive; 
-    letter-spacing: 4px;
+i {
+  background-color:#fff;
+  padding:.5em;
+  border-radius:50%;
+  box-shadow:5px 5px 5px rgba(0,0,0,.1) inset ,2px 2px 2px rgba(0,0,0,.1),-2px -2px 2px rgba(0,0,0,.1);
+  color:#1f1d01;
+  transition:background-color 300ms,color 300ms;
+}
+.fa-facebook {
+  padding:.5em .68em;
+}
+a{
+  position:relative;
+}
+a::before {
+  --content:'facebook';
+  --content-back:#0d7ff2;
+  content:var(--content);
+  font-size:15px;
+  text-align:Center;
+  color:#fff;
+  font-weight:600;
+  position:absolute;
+  top:-50px;
+  left:-35px;
+  width:110px;height:30px;
+  background-color:var(--content-back);
+  border-radius:15px 15px 0 0;
+  clip-path:polygon(0 0,100% 0,100% 80%,54% 80%,52% 100%,50% 100%,48% 80%,0 80%);
+  opacity:0;
+  transition:opacity 400ms;
+}
+a:nth-of-type(1)::before {
+  --content:'github';
+  --content-back:rgba(0,0,0,.9);
+}
+a:nth-of-type(2)::before {
+  --content:'codepen';
+  --content-back:rgba(0,0,0,.9);
+} 
+a:nth-of-type(3)::before {
+  --content:'twitter';
+  --content-back:#0049ff;
+}
+a:hover::before,
+a:focus::before   {
+  opacity:1;
+  transition:400ms;
 }
 
-p {
-    font-family: open sans;
-    font-size: 1em;
-    color:  #1B5349;
-    letter-spacing: 1px;
+
+
+@media screen and (min-width:920px) {
+  .profile__card {
+  grid-template-columns:repeat(2,1fr);
+  grid-template-areas:'header header'
+                      'image body';
+  }
+  .image__container {
+    clip-path:none;
+  }
+  .about__me {
+    padding:1.25em 1em;
+    font-size:1rem;
+  }
+  .important__social__links {
+  font-size:1.4rem;
+  }
 }
 
-.slider {
-	width: 45%;
-	margin: auto;
-    overflow: hidden;
-    box-sizing: content-box;
-}
 
-.slider ol {
-	display: flex;
-	padding: 0;
-    width: 400%;
-    
-	animation: cambio 20s infinite alternate linear;
-}
 
-.slider li {
-    width: 100%;
-    list-style: none;
- 
-}
-
-.slider img {
-    width: 600px;
-    height: 300px;
-    border-radius: 10px;
-}
-
-@keyframes cambio {
-	0% {margin-left: 0;}
-	20% {margin-left: 0;}
-	
-	25% {margin-left: -100%;}
-	45% {margin-left: -100%;}
-	
-	50% {margin-left: -200%;}
-	70% {margin-left: -200%;}
-	
-	75% {margin-left: -300%;}
-	100% {margin-left: -300%;}
-}
-
-@media (max-width:600px){
-    .slider-portada{
-        width: 100%;
-        height: 400px;
-    }
-}
-@media (min-width:600px){
- .slider-portada{
-     width: 100%;
-     height: 400px;
- }   
-}
-/* Para dispositivos medianos */
-@media(min-width:768px){
-.slider-portada {
-width: 100%;
-height: 420px;
-    }
-}
-
-@media (min-width:992px){
-    .slider-portada{
-        width: 100%;
-        height: 400px;
-    }
-}
-/* Dispositivos muy grandes */
-@media (min-width:1200px){
-    .slider-portada{
-        width: 100%;
-        height: 600px;
-    }
-}
 </style>
 
 
   <!--qui sommes nous-->
-
-
-<section class="sliderdivtext">
-
-    <div class="textoslider"> 
-
-        <h1 class="tituloslider">
-          Qui sommes nous
-            <br>
-            <h2 class= "tituloslider2"> SCHOOL@HOME, E_LEARNING </h2> 
-        </h1>
-        <br>
-        <p>
-        School@home est une plateforme d’enseignement et  d’apprentissage en ligne destinée à tout le monde. Les cours sont tutorés par des agrégés, des profs d’enseignement et des experts à travers des vidéos et des visioconférences et restent accessibles en replay sans limite de temps.
-        </p>
-    </div>
-
-<div class="slider">
-    <ol>
-        <li>
-<img src= "{{asset('images/c3.jpg')}}" alt="ds1">
-</li>
-        <li>
-<img src="{{asset('images/c2.jpg')}}" alt="ds2">
-</li>
-        <li>
-<img src="{{asset('images/c1.jpg')}}" alt="ds3">
-</li>
-        <li>
-<img src="{{asset('images/elearn.jpg')}}" alt="ds4">
-</li>
-    </ol>
-</div>
-</section>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<body>
+  <section class="card--container">
+    <div class="profile__card">
+      
+      <div class="card__header">
+        <h2>About Me</h2>
+      </div>
+      
+      <div class="image__container">
+        <div class="card__image">
+          <img src="https://picsum.photos/id/237/200" />
+        </div> 
+      </div>
+      
+      <div class="card__body">
+        <p class="about__me">Hi, I am Rahul from India , currently learning web development. I have skills like HTML, CSS, JavaScript, Python, Flask , SCSS and React JS. Over the past 1 year , I have developed 5 websites and 2 web apps , you can check all the these by going through my project section.I am available for such kind of works if anyone need my service then let me know, it will make me happy to help you all. Thank You .</p>
+        <div class="important__social__links">
+          <a href="https://github.com/Rahulbaran" target="_blank" rel="noreferrer noopener"><i class="fa fa-github"></i></a>
+          <a href="https://codepen.io/rahulbaran" target="_blank" rel="noreferrer noopener"><i class="fa fa-codepen"></i></a>
+          <a href="https://twitter.com/Rahul9122109422" target="_blank" rel="noreferrer noopener"><i class="fa fa-twitter"></i></a>
+          <a href=""><i class="fa fa-facebook"></i></a>
+        </div>
+      </div>
+    </div>  
+  </section> 
+</body>
 <!--matieres-->
+<style>
+@import url('https://fonts.googleapis.com/css?family=Poppins|Ubuntu&display=swap');
 
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+}
 
+body {
+    
+    font-family: 'Ubuntu', sans-serif
+}
+
+.box {
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px
+}
+
+.our-services {
+    margin-top: 75px;
+    padding-bottom: 30px;
+    padding: 0 60px;
+    min-height: 198px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: #fff;
+    transition: all .4s ease-in-out;
+    box-shadow: 0 0 25px 0 rgba(20, 27, 202, .17)
+}
+
+.our-services .icon {
+    margin-bottom: -21px;
+    transform: translateY(-50%);
+    text-align: center
+}
+
+.our-services:hover h4,
+.our-services:hover p {
+    color: #fff
+}
+
+.speedup:hover {
+    box-shadow: 0 0 25px 0 rgba(20, 27, 201, .05);
+    cursor: pointer;
+    background-image: linear-gradient(-45deg, #fb0054 0%, #f55b2a 100%)
+}
+
+.settings:hover {
+    box-shadow: 0 0 25px 0 rgba(20, 27, 201, .05);
+    cursor: pointer;
+    background-image: linear-gradient(-45deg, #34b5bf 0%, #210c59 100%)
+}
+
+.privacy:hover {
+    box-shadow: 0 0 25px 0 rgba(20, 27, 201, .05);
+    cursor: pointer;
+    background-image: linear-gradient(-45deg, #3615e7 0%, #44a2f6 100%)
+}
+
+.backups:hover {
+    box-shadow: 0 0 25px 0 rgba(20, 27, 201, .05);
+    cursor: pointer;
+    background-image: linear-gradient(-45deg, #fc6a0e 0%, #fdb642 100%)
+}
+
+.ssl:hover {
+    box-shadow: 0 0 25px 0 rgba(20, 27, 201, .05);
+    cursor: pointer;
+    background-image: linear-gradient(-45deg, #8d40fb 0%, #5a57fb 100%)
+}
+
+.database:hover {
+    box-shadow: 0 0 25px 0 rgba(20, 27, 201, .05);
+    cursor: pointer;
+    background-image: linear-gradient(-45deg, #27b88d 0%, #22dd73 100%)
+}
+</style>
+<div class="container-fluid mb-5">
+    <div class="text-center mt-5">
+        <h1>Our Services</h1>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="box">
+                <div class="our-services settings">
+                    <div class="icon"> <img src="https://i.imgur.com/6NKPrhO.png"> </div>
+                    <h4>Settings</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="box">
+                <div class="our-services speedup">
+                    <div class="icon"> <img src="https://i.imgur.com/KMbnpFF.png"> </div>
+                    <h4>Speedup</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="box">
+                <div class="our-services privacy">
+                    <div class="icon"> <img src="https://i.imgur.com/AgyneKA.png"> </div>
+                    <h4>Privacy</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="box">
+                <div class="our-services backups">
+                    <div class="icon"> <img src="https://i.imgur.com/vdH9LKi.png"> </div>
+                    <h4>Backups</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="box">
+                <div class="our-services ssl">
+                    <div class="icon"> <img src="https://i.imgur.com/v6OnUqu.png"> </div>
+                    <h4>SSL secured</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="box">
+                <div class="our-services database">
+                    <div class="icon"> <img src="https://i.imgur.com/VzjZw9M.png"> </div>
+                    <h4>Database</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <!--publicité-->
 
   
@@ -172,127 +343,6 @@ height: 420px;
 <!--nos professeur-->
 <style>
 
-body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-.container {
-  width: 100%;
-  min-height: 100vh;
-  background-color: #f7f7f7;
-}
-.row {
-  width: 85%;
-  margin: auto;
-}
-.content-heading h1 {
-  margin-left: 20px;
-  font-size: 40px;
-  text-transform: uppercase;
-  margin-bottom: 0;
-}
-.heading-section {
-  width: 60%;
-  text-align: center;
-  margin: auto;
-}
-.heading-section h1 {
-  padding-top: 30px;
-  font-size: 42px;
-}
-.heading-section p {
-  margin-top: 15px;
-  color: #3d3d3d;
-  font-size: 17px;
-}
-.content-section {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: auto;
-}
-.card {
-  flex: 1;
-  margin: 40px 20px;
-  border-radius: 10px;
-  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
-  padding: 15px;
-}
-.card img {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-}
-.card h4 {
-  margin-top: 20px;
-  font-size: 20px;
-}
-.card p {
-  font-size: 16px;
-  margin-top: 10px;
-  color: #3d3d3d;
-  line-height: 1.5;
-}
-
-
 </style>
-
-
-<div class="container">
-  <div class="row">
-    <div class="heading-section col-12 col-md-6 col-lg-4">
-      <h1>Our Blog</h1>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt eius cumque rerum facilis fugiat harum id iste voluptates culpa cupiditate! Sed nihil at deleniti quam.</p>
-    </div>
-    <div class="content-heading">
-      <h1>Our Special Item</h1>
-      <hr>
-      <div class="content-section">
-        <div class="card">
-          <img src="https://i.ibb.co/rcNqhGd/Project-Cover8.png" alt="">
-          <h4>Lorem ipsum dolor sit amet.</h4>
-          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed, asperiores molestiae. Cupiditate repellat esse, eos rem consequatur adipisci quidem eveniet sint amet facilis ipsa non.</p>
-        </div>
-
-        <div class="card">
-          <img src="https://i.ibb.co/tJCYSW8/Project-Cover2.png" alt="">
-          <h4>Lorem ipsum dolor sit amet.</h4>
-          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed, asperiores molestiae. Cupiditate repellat esse, eos rem consequatur adipisci quidem eveniet sint amet facilis ipsa non.</p>
-        </div>
-
-        <div class="card">
-          <img src="https://i.ibb.co/SKz4tmT/Project-Cover.jpg" alt="">
-          <h4>Lorem ipsum dolor sit amet.</h4>
-          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed, asperiores molestiae. Cupiditate repellat esse, eos rem consequatur adipisci quidem eveniet sint amet facilis ipsa non.</p>
-        </div>
-      </div>
-    </div>
-    <div class="content-heading">
-      <h1>Our Special Burger</h1>
-      <hr>
-      <div class="content-section">
-        <div class="card">
-          <img src="https://i.ibb.co/B2DhwXJ/4.png" alt="">
-          <h4>Lorem ipsum dolor sit amet.</h4>
-          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed, asperiores molestiae. Cupiditate repellat esse, eos rem consequatur adipisci quidem eveniet sint amet facilis ipsa non.</p>
-        </div>
-
-        <div class="card">
-          <img src="https://i.ibb.co/YchYYqW/2.png" alt="">
-          <h4>Lorem ipsum dolor sit amet.</h4>
-          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed, asperiores molestiae. Cupiditate repellat esse, eos rem consequatur adipisci quidem eveniet sint amet facilis ipsa non.</p>
-        </div>
-
-        <div class="card">
-          <img src="https://i.ibb.co/jLzVyvq/1.png" alt="">
-          <h4>Lorem ipsum dolor sit amet.</h4>
-          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed, asperiores molestiae. Cupiditate repellat esse, eos rem consequatur adipisci quidem eveniet sint amet facilis ipsa non.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
 {% endblock %}

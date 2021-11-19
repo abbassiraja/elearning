@@ -116,15 +116,15 @@ a::before {
   transition:opacity 400ms;
 }
 a:nth-of-type(1)::before {
-  --content:'github';
+  --content:'youtube';
   --content-back:rgba(0,0,0,.9);
 }
 a:nth-of-type(2)::before {
-  --content:'codepen';
+  --content:'twitter';
   --content-back:rgba(0,0,0,.9);
 } 
 a:nth-of-type(3)::before {
-  --content:'twitter';
+  --content:'facebook';
   --content-back:#0049ff;
 }
 a:hover::before,
@@ -165,22 +165,22 @@ a:focus::before   {
     <div class="profile__card">
       
       <div class="card__header">
-        <h2>About Me</h2>
+        <h2>Qui sommes nous</h2>
       </div>
       
       <div class="image__container">
         <div class="card__image">
-          <img src="https://picsum.photos/id/237/200" />
+          <img src="{{asset('images/c1.jpg')}}" style="height:200px;"  />
         </div> 
       </div>
       
       <div class="card__body">
-        <p class="about__me">Hi, I am Rahul from India , currently learning web development. I have skills like HTML, CSS, JavaScript, Python, Flask , SCSS and React JS. Over the past 1 year , I have developed 5 websites and 2 web apps , you can check all the these by going through my project section.I am available for such kind of works if anyone need my service then let me know, it will make me happy to help you all. Thank You .</p>
+        <p class="about__me">School@home est une plateforme d’enseignement et  d’apprentissage en ligne destinée à tout le monde. Les cours sont tutorés par des agrégés, des profs d’enseignement et des experts à travers des vidéos et des visioconférences et restent accessibles en replay sans limite de temps.</p>
         <div class="important__social__links">
-          <a href="https://github.com/Rahulbaran" target="_blank" rel="noreferrer noopener"><i class="fa fa-github"></i></a>
-          <a href="https://codepen.io/rahulbaran" target="_blank" rel="noreferrer noopener"><i class="fa fa-codepen"></i></a>
-          <a href="https://twitter.com/Rahul9122109422" target="_blank" rel="noreferrer noopener"><i class="fa fa-twitter"></i></a>
-          <a href=""><i class="fa fa-facebook"></i></a>
+          <a href="https://www.youtube.com/watch?v=nAW6acrHD74" target="_blank" rel="noreferrer noopener"><i class="fab fa-youtube"></i></a>
+          
+          <a href="https://twitter.com/ecoledesreseaux?lang=fr" target="_blank" rel="noreferrer noopener"><i class="fa fa-twitter"></i></a>
+          <a href="https://www.facebook.com/Monecoleenlignecanada/"><i class="fa fa-facebook"></i></a>
         </div>
       </div>
     </div>  
@@ -260,33 +260,33 @@ a:focus::before   {
 </style>
 <div class="container-fluid mb-5">
     <div class="text-center mt-5">
-        <h1>Our Services</h1>
+        <h1>Nos Services</h1>
     </div>
     <div class="row">
         <div class="col-md-4">
             <div class="box">
                 <div class="our-services settings">
-                    <div class="icon"> <img src="https://i.imgur.com/6NKPrhO.png"> </div>
-                    <h4>Settings</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                    <div class="icon"> <img src="{{asset('images/f1.png')}}" style="width:100px; height:100px;"> </div>
+                    <h4>Cours</h4>
+                    <p>Des milliers de cours  interactifs qui s’adaptent à ton niveau !</p>
                 </div>
             </div>
         </div>
         <div class="col-md-4">
             <div class="box">
                 <div class="our-services speedup">
-                    <div class="icon"> <img src="https://i.imgur.com/KMbnpFF.png"> </div>
-                    <h4>Speedup</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                    <div class="icon"> <img src="{{asset('images/f2.jpg')}}" style="width:100px; height:100px;"> </div>
+                    <h4>Activités</h4>
+                    <p>Des milliers d'activités interactifs qui s’adaptent à ton niveau !</p>
                 </div>
             </div>
         </div>
         <div class="col-md-4">
             <div class="box">
                 <div class="our-services privacy">
-                    <div class="icon"> <img src="https://i.imgur.com/AgyneKA.png"> </div>
-                    <h4>Privacy</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit </p>
+                    <div class="icon"> <img src="{{asset('images/f3.jpg')}}" style="width:100px; height:100px;"> </div>
+                    <h4>Exercices</h4>
+                    <p>Des milliers de cours et des exercices interactifs qui s’adaptent à ton niveau ! </p>
                 </div>
             </div>
         </div>
@@ -295,27 +295,27 @@ a:focus::before   {
         <div class="col-md-4">
             <div class="box">
                 <div class="our-services backups">
-                    <div class="icon"> <img src="https://i.imgur.com/vdH9LKi.png"> </div>
-                    <h4>Backups</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit </p>
+                    <div class="icon"> <img src="{{asset('images/f4.jpg')}}" style="width:100px; height:100px;"> </div>
+                    <h4>Devoirs</h4>
+                    <p>Des milliers de devoirs interactifs qui s’adaptent à ton niveau ! </p>
                 </div>
             </div>
         </div>
         <div class="col-md-4">
             <div class="box">
                 <div class="our-services ssl">
-                    <div class="icon"> <img src="https://i.imgur.com/v6OnUqu.png"> </div>
-                    <h4>SSL secured</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                    <div class="icon"> <img src="{{asset('images/f5.jpg')}}" style="width:100px; height:100px;"> </div>
+                    <h4>Le succès</h4>
+                    <p> Encore plus solidaire pour vous faire atteindre vos objectifs</p>
                 </div>
             </div>
         </div>
         <div class="col-md-4">
             <div class="box">
                 <div class="our-services database">
-                    <div class="icon"> <img src="https://i.imgur.com/VzjZw9M.png"> </div>
-                    <h4>Database</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                    <div class="icon"> <img src="{{asset('images/f2.jpg')}}" style="width:100px; height:100px;"> </div>
+                    <h4>Videos</h4>
+                    <p>Des milliers de videos interactifs qui s’adaptent à ton niveau !</p>
                 </div>
             </div>
         </div>
@@ -332,6 +332,10 @@ a:focus::before   {
 <!--nos professeur-->
 <style>
 
+.img-fouild {
+  width:200px;
+  height:200px;
+}
 
         h1 {
             font-size: 36px;
@@ -381,19 +385,18 @@ a:focus::before   {
         <div class="container my-3 py-5 text-center">
             <div class="row mb-5">
                 <div class="col">
-                    <h1>Our Team</h1>
+                    <h1>Nos meilleurs professeurs</h1>
                     <p class="my-3">
-                        This team page has a quirky, vibrant energy that immediately catches your attention – a good
-                        sign for a design company.
+                       Avoir une certaine expérience de la vie en dehors de la salle de classe et en dehors du domaine de l’éducation est inestimable pour placer l’apprentissage en contexte en rapport et garder les activités scolaires en perspective. C’est l’une des qualités nécessaires d’un bon enseignant. 
                     </p>
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-3 col-md-6 ">
+                <div class="col-lg-3 col-md-6 col-sm-12 ">
                     <div class="card ">
                         <div class="card-body">
                             <img class="img-fouild rounded w-75 mb-3"
-                                src="https://images.unsplash.com/photo-1554151228-14d9def656e4?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=333&q=80"
+                                src="{{asset('images/prof4.jpg')}}"
                                 alt="Sophie">
                             <h3>Sophie Johnson</h3>
                             <h5>Software Engineer</h5>
@@ -419,11 +422,11 @@ a:focus::before   {
                     </div>
                 </div>
 
-                <div class="col-lg-3 col-md-6 ">
+                <div class="col-lg-3 col-md-6 col-sm-12">
                     <div class="card h-100">
                         <div class="card-body">
                             <img class="img-fouild rounded w-75 mb-3"
-                                src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80"
+                                src="{{asset('images/prof1.jpg')}}"
                                 alt="lucy">
                             <h3>Lucy Sanchez</h3>
                             <h5>FrontEnd Developer</h5>
@@ -449,11 +452,11 @@ a:focus::before   {
                     </div>
                 </div>
 
-                <div class="col-lg-3 col-md-6 ">
+                <div class="col-lg-3 col-md-6 col-sm-12">
                     <div class="card h-100">
                         <div class="card-body">
                             <img class="img-fouild rounded w-75 mb-3"
-                                src="https://images.unsplash.com/photo-1592023031338-ee30ef94abbc?ixid=MXwxMjA3fDB8MHxzZWFyY2h8N3x8aHVtYW4lMjBtYW58ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+                                src="{{asset('images/prof2.jpg')}}"
                                 alt="Brad">
                             <h3>Brad Smith</h3>
                             <h5>Scrum Master</h5>
@@ -479,11 +482,11 @@ a:focus::before   {
                     </div>
                 </div>
 
-                <div class="col-lg-3 col-md-6 ">
+                <div class="col-lg-3 col-md-6 col-sm-12">
                     <div class="card h-100">
                         <div class="card-body">
                             <img class="img-fouild rounded w-75 mb-3"
-                                src="https://images.unsplash.com/photo-1552058544-f2b08422138a?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTd8fGh1bWFufGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+                                src="{{asset('images/prof3.jpg')}}"
                                 alt="andres">
                             <h3>Tom Rogers</h3>
                             <h5>Software Engineer</h5>

@@ -7,6 +7,7 @@ use DateTimeImmutable;
 use App\Entity\Commentaire;
 use App\Form\CommentaireType;
 use Doctrine\ORM\EntityManagerInterface;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -26,9 +27,15 @@ class CoursController extends AbstractController
     /**
      * @Route("/cours", name="cours")
      */
-    public function index(): Response
+    public function index(Request $request, PaginatorInterface $paginator): Response
     {
-        $cour = $this->entityManager->getRepository(Cours::class)->findAll();
+        $donnees = $this->entityManager->getRepository(Cours::class)->findAll();
+
+        $cour = $paginator->paginate(
+            $donnees, //on passe les donnees
+            $request->query->getInt('page', 1),//numero de la page en cour ,1 par defaut
+            10
+        );
         return $this->render('cours/index.html.twig', [
             'cour' => $cour,
         ]);

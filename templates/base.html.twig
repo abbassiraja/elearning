@@ -34,45 +34,39 @@
          <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/markercluster.Default.css">
   
         {% endblock %}
-    </head>
-    <body>
-    <nav class="navbar fixed-top">
-      <a href="#" class="navbar-logo">
-      <i class="material-icons"></i><img src="{{asset('images/logo edc.jpg')}}" alt="" style="width: 100px;"> </a>
-      <ul class="navbar-links">
-        <li class="navbar-dropdown">
-          <a href="{{path('home')}}">Acceuil</a></li>
-           <li class="navbar-dropdown">
-          <a href="{{path('scool')}}">Écoles</a></li>
-      <ul class="navbar-links">
-        <li class="navbar-dropdown">
-          <a href="{{path('matieres')}}">Matières</a>
-          <div class="dropdown">
-            <a href="{{path('matieres')}}">français</a>
-            <a href="{{path('matieres')}}">anglais</a>
-            <a href="{{path('matieres')}}">mathématiques</a>
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+  	<title>How To Create Responsive Navigation Bar With Dropdown Menus</title>
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+<!-- Start Header -->
 
-          </div>
-        </li>
-        <li class="navbar-dropdown">
-          <a href="{{path('cours')}}">Cours</a>
-          <div class="dropdown">
-            <a href="{{path('cours')}}">cours français</a>
-            <a href="{{path('cours')}}">Cours anglais</a>
-            <a href="{{path('cours')}}">Cours mathématique</a>
-
-          </div>
-        </li>
-        <li class="navbar-dropdown">
-          <a href="#">Enseignants</a>
-
-        </li>
-        <li class="navbar-dropdown">
-          <a href="{{path('contact')}}">Contact</a>
-
-        </li>
-       
-         {% if app.user %}
+<header class="fixed-top">
+    <div class="wrapper ">
+        <!-- Brand Image -->
+        <a href="#" class="logo"><img src="{{asset('images/logo edc.jpg')}}" alt="" style="width: 100px; height:100px;"></a>
+        <i class="toggle-btn fas fa-bars"></i>
+        <!-- Navbar -->
+        <nav class="nav-menus ">
+            <li><a href="{{path('home')}}"><i class="fas fa-home"></i> Acceuil</a></li>
+            <li><a href="{{path('scool')}}"><i class="fas fa-align-left"></i> Ecoles</a></li>
+            <li class="sub-menus"><a href="{{path('cours')}}"><i class="fas fa-list-ul"></i> cours</a>
+                <ul>
+                    <li><a href="#"><i class=""></i> Français</a></li>
+                    <li><a href="#"><i class=""></i> Anglais</a></li>
+                    <li><a href="#"><i class=""></i> Mathématiques</a></li>
+                    <li><a href="#"><i class=""></i> science experimentale</a></li>
+                    <li><a href="#"><i class=""></i> Informatiques</a></li>
+                </ul>
+            </li>
+            <li><a href="{{path('matieres')}}"><i class="fas fa-users"></i> Matières</a></li>
+            <li><a href="#"><i class="fas fa-phone-alt"></i> Contact</a></li>
+        {% if app.user %}
 
        <li class="nav-item ">
         <a class="nav-link" >{{ app.user.nom }} {{ app.user.prenom }}</a>
@@ -94,12 +88,180 @@
         </li>
         {% endif %}
          <li><a href="{{path('panier')}}"><img src="{{asset('images/logopanier.png')}}" alt="" style="width:30px; height:30px;"  ></a></li>
-      </ul>
-    </nav>
+        </nav>
+    </div>
+</header>
+<!-- End Header -->
+</body>
+</html>
+<style>
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: #f5f5f5;
+    font-family: arial;
+}
+header {
+    background: #ffffff;
+    width: 100%;
+    float: left;
+    box-shadow: 0px 0px 15px #777;
+}
+.wrapper {
+    max-width: 1200px;
+    padding: 0px 20px;
+    margin: auto;
+}
+
+.logo img{
+    max-width: 100%;
+}
+
+/*-- Navbar CSS --*/
+.nav-menus {
+    float: right;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+}
+.nav-menus li {
+    list-style: none;
+    position: relative;
+    padding: 30px 0px;
+}
+.nav-menus a {
+    color: black;
+    position: relative;
+    font-size: 17px;
+    text-decoration: none;
+    padding: 15px 12px;
+    z-index: 1;
+}
+.nav-menus li:hover {
+    color: #c79826;
+}
+.nav-menus a:after {
+    content: "";
+    width: 100%;
+    height: 0px;
+    background-color: #6f8eeb;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-radius: 4px;
+    transition: 0.5s;
+    z-index: -1;
+}
+.nav-menus li:hover > a:after{
+    height: 100%;
+}
+.nav-menus i{
+    margin-right: 8px;
+    font-size: 16px;
+}
+.toggle-btn{
+    float: right;
+    height: 90px;
+    line-height: 90px;
+    color:#6f8eeb ;
+    font-size: 26px;
+    display: none;
+    cursor: pointer;
+}
+.nav-menus.active{
+    display: block;
+}
+
+/*-- Sub Menus CSS--*/
+.sub-menus ul {
+    position: absolute;
+    top: 80px;
+    background-color: #fff;
+    padding: 5px 0px;
+    min-width: 150px;
+    box-shadow: 0px 0px 8px #636363;
+    border-radius: 4px;
+    display: none;
+}
+.sub-menus:hover ul {
+    display: block;
+}
+.sub-menus ul li {
+    padding: 5px 0px;
+}
+.sub-menus ul li a {
+    padding: 8px 10px;
+    display: block;
+    color: black;
+}
+.sub-menus ul li:hover a {
+    color: #fff;
+}
+.sub-menus ul::before {
+    content: "";
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #fff;
+    position: absolute;
+    top: -9px;
+}
+
+/*-- Responsive Menus Bar CSS--*/
+@media (max-width:767px) {
+.toggle-btn{
+    display: block;
+}
+.nav-menus {
+    position: absolute;
+    width: 100%;
+    background: white;
+    top: 100px;
+    right: 0;
+    display: none;
+    padding: 0px 15px;
+    box-sizing: border-box;
+}
+.nav-menus::before{
+    content: "";
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #4e2890;
+    position: absolute;
+    top: -10px;
+    right: 10px;
+}
+.sub-menus ul {
+    position: static;
+}
+.sub-menus ul::before {
+    display: none;
+}
+.nav-menus li {
+    padding: 0px;
+}
+.nav-menus li a {
+    display: block;
+    margin: 15px 0px;
+}
+}
+</style>
+  <!-- Toggle jQuery for Small Devices -->
+<script type="text/javascript">
+    $(".toggle-btn").click(function(){
+        $(this).toggleClass("fa-times");
+        $(".nav-menus").toggleClass("active");
+    });
+</script>
+
+        <!--nbj-->
+   
    
 
 
-
+ 
    
 <!--slider-->
    

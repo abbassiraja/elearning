@@ -21,6 +21,7 @@ class HomeController extends AbstractController
      */
     public function index(): Response
     {
+        
         $pub = $this->entityManager->getRepository(Publicite::class)->findAll();
         return $this->render('home/index.html.twig', [
             'pub' => $pub

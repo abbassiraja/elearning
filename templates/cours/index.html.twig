@@ -7,6 +7,7 @@
 
 
 <!--test-->
+
 {% for item in cour %}
 <div class="card-wrap one">
   <div class="card-header">
@@ -22,7 +23,7 @@
   </div>
   <div class="card-footer">
     <p>{{item.description}}</p>
-    <p>{{item.prix}}$</p>
+    <p class="prix" >{{ item.prix | number_format(0, ',', ' ') }}$</p>
     <button class="card-footer-btn"><a href="{{path('cour_show', {'id':item.id})}}">detail</a></button>
   </div>
 </div>
@@ -46,7 +47,10 @@
   --card1-gradient-color2: #fcb30c;
   ;
 }
-
+.prix{
+  color:blue;
+  font-size:60px;
+}
 body {
   font-family: "Roboto", sans-serif;
   background: linear-gradient(to right, #8e9eab, #eef2f3);
@@ -115,7 +119,7 @@ body {
 }
 .card-header {
   width: 160px;
-  height: 105px;
+  height: 130px;
   background: #ffffff;
   position: absolute;
   top: -10%;

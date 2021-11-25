@@ -89,6 +89,11 @@ ul li {
                         <p class="comment mt-2">{{commentaire.text}}</p>
                     </div>
                     <hr>
+                    <div>
+                    <a href="{{path('commentaire_remove', {'id': commentaire.cour.id})}}" class="btn btn-danger btn-sm">
+           delete
+           </a>
+                    </div>
                 </div>
                 {% endfor %}
             </div>

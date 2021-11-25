@@ -4,6 +4,7 @@
 {% block title %} Home{% endblock %}
 
 {% block body %}
+
 <style>
 /*style qui sommes nous*/
 
@@ -16,7 +17,7 @@ body {
   background-size:cover;
   background-repeat:no-repeat;
 }
-.card--container {
+.card--containers {
   width:80%;
   margin:1em auto;
 }
@@ -45,7 +46,7 @@ body {
   color:#fff;
   padding:.3em 0;
 }
-.image__container {
+.image__containers {
   padding:1.5em 0 2em;
   background-color:#001230;
   width:100%;
@@ -98,7 +99,7 @@ a{
   position:relative;
 }
 a::before {
-  --content:'facebook';
+ 
   --content-back:#0d7ff2;
   content:var(--content);
   font-size:15px;
@@ -116,15 +117,15 @@ a::before {
   transition:opacity 400ms;
 }
 a:nth-of-type(1)::before {
-  --content:'youtube';
+
   --content-back:rgba(0,0,0,.9);
 }
 a:nth-of-type(2)::before {
-  --content:'twitter';
+  
   --content-back:rgba(0,0,0,.9);
 } 
 a:nth-of-type(3)::before {
-  --content:'facebook';
+ 
   --content-back:#0049ff;
 }
 a:hover::before,
@@ -141,7 +142,7 @@ a:focus::before   {
   grid-template-areas:'header header'
                       'image body';
   }
-  .image__container {
+  .image__containers {
     clip-path:none;
   }
   .about__me {
@@ -161,14 +162,14 @@ a:focus::before   {
   <!--qui sommes nous-->
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 <body>
-  <section class="card--container">
+  <section class="card--containers">
     <div class="profile__card">
       
       <div class="card__header">
         <h2>Qui sommes nous</h2>
       </div>
       
-      <div class="image__container">
+      <div class="image__containers">
         <div class="card__image">
           <img src="{{asset('images/c1.jpg')}}" style="height:200px;"  />
         </div> 
@@ -326,13 +327,155 @@ a:focus::before   {
     </div>
 </div>
 <!--publicité-->
+<h1>Les milleurs Écoles chez nous</h1>
 
+<div class="container">	
+{% for item in pub %}
+<div class="col-md-4">
+	<div class="box">
+		<div class="img-box">
+			<img src="/images/{{item.image}}">
+		</div>
+		
+		<div class="content">
+			<h2>
+				{{item.ecole}}
+			</h2>
+			
+			<p>
+				{{item.description}}
+			</p>
+			
+			<a href="javascript:void(0);">
+				Read More
+			</a>
+		</div>
+	</div>
+	</div>
+    
+    {% endfor %}
+    </div>
+    
+
+<style>
+
+h1{
+    text-align:center;
+}
+
+.container {
+	display: flex;
+    flex-direction:row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	position: relative;
+	width: 1200px;
+    
+}
+
+.container .box {
+	height: 400px;
+	margin: 20px 0;
+	overflow: hidden;
+	position: relative;
+	width: 310px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+  
+}
+
+.container .box .img-box {
+	background-color: #000000;
+	clip-path: circle(400px at center 100px);
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	transition: clip-path 0.5s 0.5s ease;
+	width: 100%;
+}
+
+.container .box:hover .img-box {
+	clip-path: circle(80px at center 100px);
+}
+
+.container .box .img-box img {
+	height: 100%;
+	left: 0;
+	object-fit: cover;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+
+.container .box .content {
+	bottom: 0;
+	height: 55%;
+	left: 0;
+	padding: 20px;
+	position: absolute;
+	text-align: center;
+	width: 100%;
+}
+
+.container .box .content h2,
+.container .box .content p,
+.container .box .content a {
+	margin: 5px 0 10px 0;
+	opacity: 0;
+	transform: translateY(20px);
+	transition: opacity 0.5s ease,
+							transform 0.5s ease;
+}
+
+.container .box .content a {
+	background-color: #000000;
+	color: #ffffff;
+	display: inline-block;
+	padding: 5px; 
+	text-decoration: none;
+}
+
+.container .box:hover .content h2,
+.container .box:hover .content p,
+.container .box:hover .content a {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+.container .box:hover .content h2 {
+	transition-delay: 0.5s;
+}
+
+.container .box:hover .content p {
+	transition-delay: 0.7s;
+}
+
+.container .box:hover .content a {
+	transition-delay: 0.9s;
+}
+</style>
+
+
+  
   <!--style css-->
   <style>
-  
+
+
+.container {
+	
+	height: 100%;
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+}
 
   </style>
-
+  <script>
+ 
+  </script>
+  
 <!--nos professeur-->
 <style>
 
@@ -401,7 +544,7 @@ a:focus::before   {
                         <div class="card-body">
                             <img class="img-fouild rounded w-75 mb-3"
                                 src="{{asset('images/prof4.jpg')}}"
-                                alt="Sophie">
+                                alt="">
                             <h3>Sophie Johnson</h3>
                             <h5>Software Engineer</h5>
                             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi, recusandae.</p>
@@ -431,7 +574,7 @@ a:focus::before   {
                         <div class="card-body">
                             <img class="img-fouild rounded w-75 mb-3"
                                 src="{{asset('images/prof1.jpg')}}"
-                                alt="lucy">
+                                alt="">
                             <h3>Lucy Sanchez</h3>
                             <h5>FrontEnd Developer</h5>
                             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi, recusandae.</p>
@@ -461,7 +604,7 @@ a:focus::before   {
                         <div class="card-body">
                             <img class="img-fouild rounded w-75 mb-3"
                                 src="{{asset('images/prof2.jpg')}}"
-                                alt="Brad">
+                                alt="">
                             <h3>Brad Smith</h3>
                             <h5>Scrum Master</h5>
                             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi, recusandae.</p>
@@ -491,7 +634,7 @@ a:focus::before   {
                         <div class="card-body">
                             <img class="img-fouild rounded w-75 mb-3"
                                 src="{{asset('images/prof3.jpg')}}"
-                                alt="andres">
+                                alt="">
                             <h3>Tom Rogers</h3>
                             <h5>Software Engineer</h5>
                             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi, recusandae.</p>

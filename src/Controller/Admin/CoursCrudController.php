@@ -25,7 +25,7 @@ class CoursCrudController extends AbstractCrudController
             NumberField::new('reference'),
             TextField::new('description'),
             MoneyField::new('prix')->setCurrency('EUR'),
-            AssociationField::new('matiere'),
+            
             AssociationField::new('niveauscolaire'),
         ];
     }

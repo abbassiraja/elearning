@@ -8,6 +8,7 @@ use App\Entity\Commentaire;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class CommentaireController extends AbstractController
@@ -42,4 +43,29 @@ class CommentaireController extends AbstractController
             'id' =>  $post_id
         ]);
     }
+
+     /**
+     * @Route("/commentaire/remove/{id}", name="commentaire_remove")
+     */
+    public function remove($id, SessionInterface $session){
+        $post_id = $request->request->get('post_id');
+
+        $user = $this->getUser();
+
+        $post = $this->getDoctrine()
+                ->getRepository(Cours::class)
+                ->find($post_id);
+
+        $comment = $session->get('comment_add', []);
+ 
+        if(!empty($comment[$id])){
+            unset($comment[$id]);
+        }
+        $session->set('comment_add', $comment);
+        return $this->redirectToRoute("comment_add",[
+            'id' =>  $post_id
+        ]);
+     }
+ 
+ 
 }

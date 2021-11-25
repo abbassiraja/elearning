@@ -36,4 +36,4 @@ security:
     access_control:
          - { path: ^/login, roles: ROLE_ADMIN }
          - { path: ^/ecoles, roles: ROLE_ECOLE }
-         - { path: ^/profile, roles: ROLE_USER }
+         - { path: ^/panier, roles: ROLE_USER }

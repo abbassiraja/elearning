@@ -64,8 +64,8 @@ class CoursRepository extends ServiceEntityRepository
         $query = $query->getQuery();
         return $this->paginator->paginate(
             $query,
-            1,
-            12
+            $search->page,
+           12
         );
     }
 

@@ -7,7 +7,9 @@
 
 
 <!--test-->
-
+<div class="">
+{% include 'cours/_filter.html.twig' with{form:form} only %}
+</div>
 {% for item in cour %}
 <div class="card-wrap one">
   <div class="card-header">
@@ -16,20 +18,20 @@
   <div class="card-content">
     <p >{{item.reference}}</p>
     <p class="card-content-option true">Lorem ipsum dolor</p>
-    <p class="card-content-option false">Lorem ipsum dolor</p>
-    <p class="card-content-option false">Lorem ipsum dolor</p>
-    <p class="card-content-option false">Lorem ipsum dolor</p>
-    <p class="card-content-option false">Lorem ipsum dolor</p>
+  
   </div>
   <div class="card-footer">
     <p>{{item.description}}</p>
     <p class="prix" >{{ item.prix | number_format(0, ',', ' ') }}$</p>
     <button class="card-footer-btn"><a href="{{path('cour_show', {'id':item.id})}}">detail</a></button>
   </div>
+
 </div>
 
 {% endfor %}
-{{ knp_pagination_render(cour) }}
+<div>
+{{ knp_pagination_render(cour)}}
+</div>
 <!--style-->
 <style>
   @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
@@ -56,19 +58,19 @@ body {
   background: linear-gradient(to right, #8e9eab, #eef2f3);
   height: 100vh;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: space-between;
+  justify-content:center ;
   flex-wrap: wrap;
   gap: 120px 10px;
 }
 .card-wrap {
   width: 210px;
-  height: 375px;
+  height: 395px;
   border-radius: 10px;
   position: relative;
 }
 .card-wrap::after {
-  content: "$19";
+  
   position: absolute;
   width: 70px;
   height: 70px;
@@ -80,7 +82,7 @@ body {
   right: 0;
   z-index: 10;
   color: var(--color-text2);
-  font-size: 22px;
+  font-size: 30px;
   font-weight: 700;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
     rgba(0, 0, 0, 0.22) 0px 10px 10px;
@@ -184,7 +186,7 @@ body {
   padding: 10px;
 }
 .card-footer p {
-  font-size: 10px;
+  font-size: 19px;
   text-align: center;
   margin: 10px 0;
 }

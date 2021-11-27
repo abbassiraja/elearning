@@ -2,10 +2,13 @@
 
 namespace App\Controller;
 
+
 use App\Entity\Cours;
 use DateTimeImmutable;
+
+use App\Data\SearchData;
+use App\Form\SearchForm;
 use App\Entity\Commentaire;
-use App\Form\SearchCourType;
 use App\Form\CommentaireType;
 use App\Repository\CoursRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -29,8 +32,9 @@ class CoursController extends AbstractController
     /**
      * @Route("/cours", name="cours")
      */
-    public function index(Request $request, PaginatorInterface $paginator, CoursRepository $coursRepo ): Response
+    public function index(Request $request, PaginatorInterface $paginator, CoursRepository $repository): Response
     {
+        //pagination
         $donnees = $this->entityManager->getRepository(Cours::class)->findAll();
 
         $cour = $paginator->paginate(
@@ -40,10 +44,15 @@ class CoursController extends AbstractController
         );
 
         
-
-        $form = $this->createForm(SearchCourType::class);
+        //search
         
-        $search = $form->handleRequest($request);
+        $data = new SearchData();
+        $form = $this->createForm(SearchForm::class, $data);
+        $form->handleRequest($request);
+        
+        $cour = $repository->findSearch($data);
+        
+        
 
       
         return $this->render('cours/index.html.twig', [

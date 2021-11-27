@@ -7,11 +7,14 @@
 
 
 <!--test-->
-<div class="">
+
+<div class="card-wrap " >
 {% include 'cours/_filter.html.twig' with{form:form} only %}
 </div>
+
 {% for item in cour %}
 <div class="card-wrap one">
+
   <div class="card-header">
     <h5>{{item.nom}}{{item.matiere}}<br>{{item.niveauscolaire}}</h5>
   </div>
@@ -29,7 +32,8 @@
 </div>
 
 {% endfor %}
-<div>
+<!--pagination-->
+<div class="cap">
 {{ knp_pagination_render(cour)}}
 </div>
 <!--style-->
@@ -49,6 +53,10 @@
   --card1-gradient-color2: #fcb30c;
   ;
 }
+.cap{
+  width:1000px
+  
+}
 .prix{
   color:blue;
   font-size:60px;
@@ -58,7 +66,7 @@ body {
   background: linear-gradient(to right, #8e9eab, #eef2f3);
  
   display: flex;
-  align-items: space-between;
+  align-items: center;
   justify-content:center ;
   flex-wrap: wrap;
   gap: 120px 10px;

@@ -85,7 +85,7 @@ ul li {
                 {% for commentaire in cour.getCommentaires %}
                 <div class="media mt-3">
                     <div class="media-body">
-                        <span class="comment-username"> {{commentaire.nomutilisateur}}{{commentaire.createdAt|date("F jS \a\t g:ia")}}</span>
+                        <span class="comment-username"> {{commentaire.user.nom}}  {{commentaire.createdAt|date("F jS \a\t g:ia")}}</span>
                         <p class="comment mt-2">{{commentaire.text}}</p>
                     </div>
                     <hr>

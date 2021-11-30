@@ -3,55 +3,144 @@
 {% block title %}Hello PanierController!{% endblock %}
 
 {% block body %}
-<div class="container   bg-light p-3">
-<div class="row col-md-12 col-xs-12">
+
+
+<!--test-->
+<div class="container  bg-light p-3">
+
 <h1>votre panier</h1>
-</div>
-<div class="row col-md-12 col-xs-12">
+
+<div class="row">
 {% if item | length > 0  %}
-<table class="table">
-   <thead>
+<table>
+  
+  <thead>
+    <tr>
+    <th scope="col">Cours</th>
+           <th scope="col">Niveau scolaire</th>
+           <th scope="col">Reference</th>
+           <th scope="col">Prix</th>
+           <th scope="col">Quantité</th>
+           <th scope="col">Total</th>
+           <th scope="col"></th>
+     
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        {% for item in item %}
        <tr>
-           <th>Cours</th>
-           <th>Niveau scolaire</th>
-           <th>Reference</th>
-           <th>Prix</th>
-           <th>Quantité</th>
-           <th>Total</th>
-           <th></th>
-       </tr>
-   </thead>
-   <tbody>
-       {% for item in item %}
-       <tr>
-       <td>{{item.cour.nom}}</td>
-       <td>{{item.cour.niveauscolaire}}</td>
-       <td>{{item.cour.reference}}</td>
-       <td>{{item.cour.prix}}$</td>
-       <td>{{item.quantity}}</td>
-       <td>{{item.cour.prix * item.quantity}}</td>
-       <td>
+       <td data-label="nom de cour">{{item.cour.nom}}</td>
+       <td data-label="niveauscolaire">{{item.cour.niveauscolaire}}</td>
+       <td data-label="reference">{{item.cour.reference}}</td>
+       <td data-label="prix">{{item.cour.prix}}$</td>
+       <td data-label="quantity">{{item.quantity}}</td>
+       <td data-label="total">{{item.cour.prix * item.quantity}}</td>
+       <td data-label="">
            <a href="{{path('cart_remove', {'id': item.cour.id})}}" class="btn btn-danger btn-sm">
            delete
            </a>
        </td>
     </tr>
-       {% endfor %}
-   </tbody>
-   <tfoot>
+    {% endfor %}
     <tr>
-        <td colspan="5" class="text-right" >
+     <td scope="row" data-label="total" >
           Total:
         </td>
-        <td>{{total}}</td>
-        <td></td>
+        <td data-label="total">{{total}}</td>
+        <td data-label="Total"></td>
     </tr>
-</tfoot>
+    
+  </tbody>
 </table>
 {% else %}
 <p>c'est vide!</p>
 {% endif %}
+
 </div>
 </div>
+
+<style>
+
+
+
+
+
+table {
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  table-layout: fixed;
+}
+
+table tr {
+  background: #f8f8f8;
+  border: 1px solid #ddd;
+  padding: .35em;
+}
+table th,
+table td {
+  padding: .625em;
+  text-align: left;
+  vertical-align:top;
+}
+table th {
+  font-size: .85em;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+@media screen and (max-width: 600px) {
+   .desktop-only{
+  display:none;
+  }
+  .mobile-only{
+  font-size:2rem;
+  display:block;
+  color:green;
+}
+  table {
+    border: 0;
+  }
+  table caption {
+    font-size: 1.3em;
+  }
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  table tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: .625em;
+  }
+  table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: .8em;
+    text-align: right;
+  }
+  table td:before {
+    /*
+    * aria-label has no advantage, it won't be read inside a table
+    content: attr(aria-label);
+    */
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  table td:last-child {
+    border-bottom: 0;
+  }
+}
+</style>
 
 {% endblock %}

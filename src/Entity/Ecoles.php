@@ -151,9 +151,7 @@ class Ecoles
 
         return $this;
     }
-    public function __toString(){
-        return $this->nom;
-    }
+  
 
     public function getLat(): ?float
     {
@@ -177,5 +175,8 @@ class Ecoles
         $this->lon = $lon;
 
         return $this;
+    }
+    public function __toString(){
+        return $this->nom;
     }
 }

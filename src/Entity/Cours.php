@@ -2,10 +2,11 @@
 
 namespace App\Entity;
 
-use App\Repository\CoursRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\CoursRepository;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity(repositoryClass=CoursRepository::class)
@@ -57,9 +58,17 @@ class Cours
      */
     private $reference;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Ecoles::class, )
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $ecole;
+
+
     public function __construct()
     {
         $this->commentaires = new ArrayCollection();
+        $this->cours = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -126,9 +135,7 @@ class Cours
 
         return $this;
     }
-    public function __toString(){
-        return $this->nom;
-    }
+   
 
     /**
      * @return Collection|Commentaire[]
@@ -170,6 +177,22 @@ class Cours
         $this->reference = $reference;
 
         return $this;
+    }
+
+    public function getEcole(): ?Ecoles
+    {
+        return $this->ecole;
+    }
+
+    public function setEcole(?Ecoles $ecole): self
+    {
+        $this->ecole = $ecole;
+
+        return $this;
+    }
+
+    public function __toString(){
+        return $this->nom;
     }
    
 }

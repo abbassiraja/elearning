@@ -32,8 +32,9 @@ class CoursRepository extends ServiceEntityRepository
     {
         $query = $this
          ->createQueryBuilder('p')
-         ->select('c','p')
-         ->join('p.niveauscolaire', 'c');
+         ->select('c','p','d')
+         ->join('p.niveauscolaire', 'c')
+         ->join('p.ecole', 'd');
 
          if (!empty($search->q)) {
             $query = $query
@@ -59,6 +60,11 @@ class CoursRepository extends ServiceEntityRepository
             $query = $query
                 ->andWhere('c.id IN (:niveauscolaire)')
                 ->setParameter('niveauscolaire', $search->niveauscolaire);
+        }
+        if (!empty($search->ecole)) {
+            $query = $query
+                ->andWhere('d.id IN (:ecole)')
+                ->setParameter('ecole', $search->ecole);
         }
 
         $query = $query->getQuery();

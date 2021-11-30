@@ -1,6 +1,7 @@
 <?php
 namespace App\Form;
 
+use App\Entity\Ecoles;
 use App\Data\SearchData;
 use App\Entity\NiveauScolaire;
 use Symfony\Component\Form\AbstractType;
@@ -30,6 +31,13 @@ class SearchForm extends AbstractType
                 'label' => false,
                 'required' => false,
                 'class' => NiveauScolaire::class,
+                'expanded' => true,
+                'multiple' => true
+            ])
+            ->add('ecole', EntityType::class, [
+                'label' => false,
+                'required' => false,
+                'class' => Ecoles::class,
                 'expanded' => true,
                 'multiple' => true
             ])

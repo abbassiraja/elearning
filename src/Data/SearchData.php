@@ -25,6 +25,12 @@ class SearchData{
 
      public $niveauscolaire = [];
 
+       /**
+      * @var Ecoles[];
+    */
+
+    public $ecole = [];
+
      /**
       * @var null/integer
       */

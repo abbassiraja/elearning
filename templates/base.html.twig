@@ -55,7 +55,7 @@
         <nav class="nav-menus ">
             <li><a href="{{path('home')}}"><i class="fas fa-home"></i> Acceuil</a></li>
             <li><a href="{{path('scool')}}"><i class="fas fa-align-left"></i> Ecoles</a></li>
-            <li class="sub-menus"><a href="{{path('cours')}}"><i class="fas fa-list-ul"></i> cours</a>
+            <li class="sub-menus"><a href="{{path('cours')}}"><i class="fas fa-file"></i> cours</a>
                
             </li>
            
@@ -63,7 +63,7 @@
         {% if app.user %}
 
        <li class="nav-item ">
-        <a class="nav-link" >{{ app.user.nom }} {{ app.user.prenom }}</a>
+        <a class="nav-link" > <i class="fas fa-user"></i>{{ app.user.nom }} {{ app.user.prenom }}</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{{path('app_logout')}}">Déconnexion</a>
@@ -72,7 +72,7 @@
 
        {% else %}
         <li class="navbar-dropdown">
-          <a href="{{path('register')}}">Inscription</a>
+          <a href="{{path('register')}}"> <i class="fas fa-user"></i>Inscription</a>
 
         </li>
           </li>
@@ -385,8 +385,8 @@ header {
     </footer>
         <style>
         .contain{
-            margin-left:10px;
-            margin-right:10px;
+            margin-left:30px;
+            margin-right:40px;
         }
           ul {
     margin: 0px;
@@ -522,7 +522,7 @@ header {
     top: 0;
 }
 .subscribe-form button i {
-  color:  #f5ba0a;
+  color: black;
   font-size: 12px;
   transform: rotate(-6deg);
 }

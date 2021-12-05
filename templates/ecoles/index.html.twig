@@ -116,11 +116,18 @@ L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
     
      <button><a href="{{path('cours')}}"><img src="/images/{{item.image}}" style="width:300px; height:150px;"   > </a></button> 
       <h2>{{item.nom}}</h2>
+      
               
     </div>
     <div class="content">
      
       <p>{{item.description}}</p>
+       <h6>
+			Email:	{{item.email}}
+			</h6>
+            <h6>
+			Numero de téléphne:	{{item.numerotelephone}}
+			</h6>
      
     </div>
   </div>

@@ -35,7 +35,7 @@ class Ecoles
     /**
      * @ORM\Column(type="integer")
      */
-    private $numero_telephone;
+    private $numerotelephone;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -104,14 +104,14 @@ class Ecoles
         return $this;
     }
 
-    public function getNumeroTelephone(): ?int
+    public function getNumerotelephone(): ?int
     {
-        return $this->numero_telephone;
+        return $this->numerotelephone;
     }
 
-    public function setNumeroTelephone(int $numero_telephone): self
+    public function setNumerotelephone(int $numerotelephone): self
     {
-        $this->numero_telephone = $numero_telephone;
+        $this->numerotelephone = $numerotelephone;
 
         return $this;
     }

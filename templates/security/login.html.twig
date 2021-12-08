@@ -16,7 +16,7 @@
         </div>
     {% endif %}
       <div class="login">
-        <h1 style="color:#9966FF rgb(153,102,255);">Login</h1>
+        <h1 >Connexion</h1>
         <div class="username">
           <i class="fa fa-user"></i>
           <label for="inputEmail">Email</label>
@@ -33,6 +33,9 @@
         
          <button class="btn btn-lg btn-primary" type="submit">
         Sign in
+    </button>
+       <button class="btn btn-lg btn-primary" type="submit">
+        <a href="{{path('register')}}">inscription</a>
     </button>
 
       </div>
@@ -112,6 +115,9 @@ body {
   font-size: 23px;
   cursor: pointer;
   margin: 12px 0;
+}
+.btn a{
+  text-decoration: none;
 }
 
 @media (max-width: 425px) {

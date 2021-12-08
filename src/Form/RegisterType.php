@@ -55,7 +55,7 @@ class RegisterType extends AbstractType
                 'label'=> "s'inscrire",
                 'attr' => [
                     
-                    'class'=>'btn w-100 text-white btn-lg bg-secondary ',
+                    'class'=>'btn w-100 text-white btn-lg bg-primary ',
                 ]
             ])
             

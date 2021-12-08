@@ -20,13 +20,21 @@
 {% block body %}
 <section class="form">
     <div class="container">
+   
     <div class="row">
        {% if notification %}
-
+    <div class="col-lg- ">
        <div class="alert alert-success">
         {{notification}}
+       </div> 
        </div>
+       
        {% endif %}
+    </div>
+     <div class="row">
+    <div class="col-lg-6 col-md-10 col-sm-12 offset-lg-4">
+    <h1 style="color:white;">INSCRIPTION</h1>
+    </div>
     </div>
         <div class="row">
         <div class="col"> </div>
@@ -62,6 +70,10 @@
 
 
    <style>
+ section{
+     margin:20px;
+ }
+
    html {
     height: 100%;
     width: 100%;
@@ -73,7 +85,7 @@ body {
     font-family: 'Droid Serif', serif;
 }
 label{
-    color:#000080;
+    color:white;
     font-size:20px;
 }
 

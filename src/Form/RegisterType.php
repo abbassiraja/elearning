@@ -18,10 +18,7 @@ class RegisterType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-        ->add('image', FileType::class,[
-            
-            'label'=>false
-        ])
+       
             ->add('nom', TextType::class,[
                 'label'=>false
             ])
@@ -42,13 +39,13 @@ class RegisterType extends AbstractType
                     'label'=> 'mot de passe',
                     'attr' => [
                         'class'=>'form-control',
-                        'placeholder' => 'merci de saisir votre mot de passe'
+                        
                     ]
                     ],
                     'second_options'=>[
                         'label'=>'confirmer votre mot de passe',
                         'attr' => [
-                            'placeholder' => 'merci de confirmer votre mot de passe',
+                           
                             'class'=>'form-control',
                         ]
                     ]
@@ -58,7 +55,7 @@ class RegisterType extends AbstractType
                 'label'=> "s'inscrire",
                 'attr' => [
                     
-                    'class'=>'btn w-100 text-white btn-lg bg-dark',
+                    'class'=>'btn w-100 text-white btn-lg bg-secondary ',
                 ]
             ])
             

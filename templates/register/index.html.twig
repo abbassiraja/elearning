@@ -16,26 +16,23 @@
          <script src="{{asset('jquery/jquery-3.5.1.slim.min.js')}}"></script>
         {% endblock %}
 
-</head>
+    </head>
 {% block body %}
 <section class="form">
     <div class="container">
-<div class="row">
+    <div class="row">
        {% if notification %}
 
        <div class="alert alert-success">
         {{notification}}
        </div>
        {% endif %}
-</div>
+    </div>
         <div class="row">
         <div class="col"> </div>
           <div class="col-6" >
             {{form_start(form)}}
-            <div class="mb-3">
-            {{form_label(form.image, 'Photo de profil',{'label_attr':{'class':'form-label'}})}}
-            {{form_row(form.image,{'attr':{'class':'form-control'}})}}
-        </div>
+       
          <div class="mb-3">
             {{form_label(form.nom, 'Nom',{'label_attr':{'class':'form-label'}})}}
             {{form_row(form.nom,{'attr':{'class':'form-control'}})}}
@@ -74,6 +71,14 @@ body {
     background: url("images/bleu.jpg") no-repeat center center fixed;
     background-size: cover;
     font-family: 'Droid Serif', serif;
+}
+label{
+    color:#000080;
+    font-size:20px;
+}
+
+.btn{
+    color:red;
 }
 
    </style>

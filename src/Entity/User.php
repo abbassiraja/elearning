@@ -46,10 +46,7 @@ class User implements UserInterface
      */
     private $prenom;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $image;
+   
 
     /**
      * @ORM\OneToMany(targetEntity=Commentaire::class, mappedBy="user")
@@ -166,17 +163,7 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getImage(): ?string
-    {
-        return $this->image;
-    }
-
-    public function setImage(string $image): self
-    {
-        $this->image = $image;
-
-        return $this;
-    }
+  
 
     /**
      * @return Collection|Commentaire[]

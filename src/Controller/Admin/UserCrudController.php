@@ -20,10 +20,7 @@ class UserCrudController extends AbstractCrudController
     {
         return [
             
-            ImageField::new('image')
-               ->setBasePath('images/')
-               ->setUploadDir('public/images')
-               ->setUploadedFileNamePattern('[randomhash].[extension]'),
+            
             TextField::new('nom'),
             TextField::new('prenom'),
            

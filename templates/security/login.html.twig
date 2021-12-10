@@ -1,5 +1,22 @@
 
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        {% block title %}{% endblock %}
+        
+        {% block stylesheets %}
+       
+        
+         <link rel="stylesheet" href="{{asset('css/style.css')}}">
+         <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
+         <link rel="stylesheet" href="{{asset('css/bootstrap.min.css.map')}}">
+         <link rel="stylesheet" href="{{asset('css/bootstrap.css.map')}}">
+         <script src="{{asset('jquery/jquery-3.5.1.slim.min.js')}}"></script>
+        {% endblock %}
 
+    </head>
 
 
 {% block body %}
@@ -145,3 +162,4 @@ body {
 
 </script>
 {% endblock %}
+</html>

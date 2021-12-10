@@ -48,7 +48,7 @@ class RegisterController extends AbstractController
 
             $notification = "Votre inscription s'est bien déroulée";
         }else{
-            $notification = "L'email utilié existe déja";
+            $notification = "L'email utilisé existe déja";
         }
 
 

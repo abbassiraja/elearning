@@ -122,7 +122,7 @@ header {
 .nav-menus li {
     list-style: none;
     position: relative;
-    padding: 20px 10px;
+    padding: 10px 10px;
 }
 .nav-menus a {
     color: black;
@@ -165,40 +165,6 @@ header {
 }
 .nav-menus.active{
     display: block;
-}
-
-/*-- Sub Menus CSS--*/
-.sub-menus ul {
-    position: absolute;
-    top: 80px;
-    background-color: #fff;
-    padding: 5px 0px;
-    min-width: 150px;
-    box-shadow: 0px 0px 8px #636363;
-    border-radius: 4px;
-    display: none;
-}
-.sub-menus:hover ul {
-    display: block;
-}
-.sub-menus ul li {
-    padding: 5px 0px;
-}
-.sub-menus ul li a {
-    padding: 8px 10px;
-    display: block;
-    color: black;
-}
-.sub-menus ul li:hover a {
-    color: #fff;
-}
-.sub-menus ul::before {
-    content: "";
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-bottom: 10px solid #fff;
-    position: absolute;
-    top: -9px;
 }
 
 /*-- Responsive Menus Bar CSS--*/
@@ -248,12 +214,6 @@ header {
     });
 </script>
 
-        <!--nbj-->
-   
-   
-
-
- 
    
 <!--slider-->
    
@@ -284,12 +244,7 @@ header {
 
     </div>
 
-
-
-
-   
-   
-        {% block body %}{% endblock %}
+{% block body %}{% endblock %}
         
          
          

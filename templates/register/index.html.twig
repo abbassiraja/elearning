@@ -23,10 +23,13 @@
    
     <div class="row">
        {% if notification %}
-    <div class="col-lg- ">
+    <div class="col-lg-3 ">
        <div class="alert alert-success">
         {{notification}}
        </div> 
+       </div>
+       <div class="col-lg-2 offset-lg-7 ">
+       <button class="btn btn-lg btn-primary" ><a href="{{path('app_login')}}">connexion</a></button>
        </div>
        
        {% endif %}
@@ -89,8 +92,11 @@ label{
     font-size:20px;
 }
 
-.btn{
-    color:red;
+
+
+.btn a{
+  text-decoration: none;
+  color:white;
 }
 
    </style>

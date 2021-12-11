@@ -17,7 +17,11 @@ class ContactType extends AbstractType
             ->add('nom')
             ->add('email',EmailType::class)
             ->add('message',TextareaType::class)
-            ->add('envoyer',SubmitType::class)
+            ->add('envoyer',SubmitType::class,[
+            'attr' => [
+                    
+                'class'=>'btn w-100 text-white btn-lg bg-primary ',
+            ]])
         ;
     }
 

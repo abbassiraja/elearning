@@ -8,10 +8,6 @@
 
 <style>
 
-</style>
-<!--test-->
-
-<style>
 /*style qui sommes nous*/
 
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500&family=Montserrat&display=swap');
@@ -22,6 +18,12 @@ body {
   
   background-size:cover;
   background-repeat:no-repeat;
+}
+h1 {
+	font-size: 8rem;
+	color: blue;
+	text-shadow: 0 0 10px #000000;
+	border-bottom: 2px solid gold;
 }
 .card--containers {
   width:90%;
@@ -42,7 +44,7 @@ body {
   grid-area:header;
   background-color:white;
   min-width:100%;
-  border-bottom:2px dashed #fff;
+  
 }
 .card__header h2 {
   font-weight:600;
@@ -67,7 +69,7 @@ body {
   height:200px;
   background-color:white;
   border-radius:50%;
-  box-shadow:0 0 5px rgba(0,0,0,.5)
+  box-shadow:0 0 5px rgba(0,0,0,.5);
 }
 .card__image img {
   min-width:100%;
@@ -80,7 +82,7 @@ body {
   font-weight:500;
   font-size:.9rem;
   padding:1em;  
-  border-bottom:2px dashed grey;
+  border-bottom:2px dashed rgb(255, 174, 0);
 }
 .important__social__links {
  background-color:white;
@@ -160,8 +162,6 @@ a:focus::before   {
   }
 }
 
-
-
 </style>
 
 
@@ -172,7 +172,7 @@ a:focus::before   {
     <div class="profile__card">
       
       <div class="card__header">
-        <h2>Qui sommes nous</h2>
+        <h1 style="color:blue;" ><em>Qui sommes nous</em></h1>
       </div>
       
       <div class="image__containers">
@@ -200,7 +200,9 @@ a:focus::before   {
 <style>
 @import url('https://fonts.googleapis.com/css?family=Poppins|Ubuntu&display=swap');
 
-
+h4{
+    color:rgb(255, 174, 0);
+}
 
 .box {
     position: relative;
